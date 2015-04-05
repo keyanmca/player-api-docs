@@ -2,8 +2,11 @@
 
 ![streamrail logo](https://avatars2.githubusercontent.com/u/8501254?v=3&s=200)
 
+## Overview
 
-## Quickstart
+[Quickstart & Examples](#quickstart) | [General](#general) | [Video Content](#video-content) | [Flash Tech API](#flash-api) | [HTML5 Tech API] (#html5-api)
+
+## <a name="quickstart"></a> Quickstart
 
 Dive into the live samples (source available on the [github repo](https://github.com/streamrail/player-api-docs/blob/master/app/examples/)):
 
@@ -11,6 +14,7 @@ Dive into the live samples (source available on the [github repo](https://github
 - [minimalistic flash vpaid tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html) (javascript & flash)
 - [a sequence of two html5 players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html)
 - [a sequence of two flash players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html)
+- Use the [VAST inspector](http://sdk.streamrail.com/vast-inspector/index.html) to test out your VAST tags.
 
 To run the examples on your machine, clone the repo and install the package deps:
 ```
@@ -25,10 +29,7 @@ grunt connect
 
 you can now browse to the examples at localhost (e.g. http://localhost:8000/app/examples/minimal_js.html)
 
-## Overview
-
-
-### General
+## <a name="general"></a> General
 
 To get an instance of the player, supply the ID of the container, and a configuration object:
 
@@ -119,7 +120,7 @@ When using a VPAID tag (for web), set the tech to "flash". when using VAST tags 
 		..
 	});
 
-## Video Content
+## <a name="video-content"></a>Video Content
 
 Content and ads can be used independantly of each other (i.e. you can try to get ads from an ad server without having content, and of course, you can render content videos without showing ads). 
 
@@ -142,7 +143,7 @@ The optional content node, if used, has only one mandatory parameter - the sourc
 	});
 
 	
-## Flash Tech API
+## <a name="flash-api"></a> Flash Tech API
 
 If you are using VPAID ad tags, you have to use flash tech on the player. 
 
@@ -264,7 +265,7 @@ to specify ads to the flash player, you need to define the ad schedule (pre-roll
 			}]
 	}
 
-## HTML5 API
+## <a name="html5-api"></a> HTML5 Tech API
 
 If you are using VAST ads (not VPAID), then you may use HTML5 tech. If you are working with mobile web sites, use this option. 
 
