@@ -17,17 +17,17 @@ Dive into the live samples (source available on the [github repo](https://github
 - Use the [VAST inspector](http://sdk.streamrail.com/vast-inspector/index.html) to test out your VAST tags.
 
 To run the examples on your machine, clone the repo and install the package deps:
-```
-$ git clone https://github.com/streamrail/player-api-docs.git
-$ cd player-api-docs && npm install
-```
+
+	$ git clone https://github.com/streamrail/player-api-docs.git
+	$ cd player-api-docs && npm install
+
 
 then run a local connect server:
-```
-grunt connect
-```
 
-you can now browse to the examples at localhost (e.g. http://localhost:8000/app/examples/minimal_js.html)
+	grunt connect
+
+
+browse to the examples on your dev machine at [http://localhost:8000/app/examples/](http://localhost:8000/app/examples/)
 
 ## <a name="general"></a> General
 
