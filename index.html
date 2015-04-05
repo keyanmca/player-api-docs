@@ -37,7 +37,13 @@
 <p><img src="https://avatars2.githubusercontent.com/u/8501254?v=3&amp;s=200" alt="streamrail logo"></p>
 
 <h2>
-<a id="quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p><a href="#quickstart">Quickstart &amp; Examples</a> | <a href="#general">General</a> | <a href="#video-content">Video Content</a> | <a href="#flash-api">Flash Tech API</a> | <a href="#html5-api">HTML5 Tech API</a></p>
+
+<h2>
+<a id="-quickstart" class="anchor" href="#-quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="quickstart"></a> Quickstart</h2>
 
 <p>Dive into the live samples (source available on the <a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/">github repo</a>):</p>
 
@@ -48,6 +54,7 @@
 <a href="http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html">minimalistic flash vpaid tag integration</a> (javascript &amp; flash)</li>
 <li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html">a sequence of two html5 players with different skip policies</a></li>
 <li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html">a sequence of two flash players with different skip policies</a></li>
+<li>Use the <a href="http://sdk.streamrail.com/vast-inspector/index.html">VAST inspector</a> to test out your VAST tags.</li>
 </ul>
 
 <p>To run the examples on your machine, clone the repo and install the package deps:</p>
@@ -61,13 +68,11 @@ $ cd player-api-docs &amp;&amp; npm install
 <pre><code>grunt connect
 </code></pre>
 
-<p>you can now browse to the examples at localhost (e.g. http://localhost:8000/app/examples/minimal_js.html)</p>
+<p>browse to the examples on your dev machine at <a href="http://localhost:8000/app/examples/">http://localhost:8000/app/examples/</a></p>
 
 <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
-
-<h3>
-<a id="general" class="anchor" href="#general" aria-hidden="true"><span class="octicon octicon-link"></span></a>General</h3>
+<a id="-general" class="anchor" href="#-general" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="general"></a> General</h2>
 
 <p>To get an instance of the player, supply the ID of the container, and a configuration object:</p>
 
@@ -163,7 +168,8 @@ var player2 = SR('ad-container1', {
 </code></pre>
 
 <h2>
-<a id="video-content" class="anchor" href="#video-content" aria-hidden="true"><span class="octicon octicon-link"></span></a>Video Content</h2>
+<a id="video-content" class="anchor" href="#video-content" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="video-content"></a>Video Content</h2>
 
 <p>Content and ads can be used independantly of each other (i.e. you can try to get ads from an ad server without having content, and of course, you can render content videos without showing ads). </p>
 
@@ -187,7 +193,8 @@ var player2 = SR('ad-container1', {
 </code></pre>
 
 <h2>
-<a id="flash-tech-api" class="anchor" href="#flash-tech-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flash Tech API</h2>
+<a id="-flash-tech-api" class="anchor" href="#-flash-tech-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="flash-api"></a> Flash Tech API</h2>
 
 <p>If you are using VPAID ad tags, you have to use flash tech on the player. </p>
 
@@ -325,7 +332,8 @@ var player2 = SR('ad-container1', {
 </code></pre>
 
 <h2>
-<a id="html5-api" class="anchor" href="#html5-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML5 API</h2>
+<a id="-html5-tech-api" class="anchor" href="#-html5-tech-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="html5-api"></a> HTML5 Tech API</h2>
 
 <p>If you are using VAST ads (not VPAID), then you may use HTML5 tech. If you are working with mobile web sites, use this option. </p>
 
