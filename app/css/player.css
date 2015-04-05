@@ -1,0 +1,12 @@
+body,html {
+	background-color: black;
+}
+.center {
+	display: block !important;
+	margin: 0 auto;
+	width: 778px;
+	position: relative !important;
+}
+.main-view {
+	background: black;
+}

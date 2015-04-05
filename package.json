@@ -1,0 +1,25 @@
+{
+  "name": "player-api-docs",
+  "version": "0.0.1",
+  "description": "api docs for player",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/streamrail/player-api-docs.git"
+  },
+  "author": "orcaman",
+  "license": "All Rights Reserved StreamRail 2015",
+  "bugs": {
+    "url": "https://github.com/streamrail/player-api-docs/issues"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "homepage": "https://github.com/streamrail/player-api-docs",
+  "dependencies": {
+    "grunt-contrib-connect": "^0.10.1"
+  }
+}
