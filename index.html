@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Player-api-docs by streamrail</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Player-api-docs</h1>
+          <h2></h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/streamrail/player-api-docs/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/streamrail/player-api-docs/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/streamrail/player-api-docs" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="streamrail-video-player-for-web" class="anchor" href="#streamrail-video-player-for-web" aria-hidden="true"><span class="octicon octicon-link"></span></a>streamrail video player for web</h1>
+
+<p><img src="https://avatars2.githubusercontent.com/u/8501254?v=3&amp;s=200" alt="streamrail logo"></p>
+
+<h2>
+<a id="quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h2>
+
+<p>Dive into the samples:</p>
+
+<ul>
+<li>
+<a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_js.html">minimalistic vast tag integration</a> (html5, web &amp; mobile web)</li>
+<li>
+<a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_flash.html">minimalistic vpaid tag integration</a> (javascript &amp; flash)</li>
+<li><a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence.html">a sequence of two players with different skip policies</a></li>
+</ul>
+
+<p>To run the examples, clone the repo and install the package deps:</p>
+
+<pre><code>$ git clone https://github.com/streamrail/player-api-docs.git
+$ cd player-api-docs &amp;&amp; npm install
+</code></pre>
+
+<p>then run a local connect server:</p>
+
+<pre><code>grunt connect
+</code></pre>
+
+<p>you can now browse to the examples at localhost (e.g. http://localhost:8000/app/examples/minimal_js.html)</p>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<h3>
+<a id="general" class="anchor" href="#general" aria-hidden="true"><span class="octicon octicon-link"></span></a>General</h3>
+
+<p>To get an instance of the player, supply the ID of the container, and a configuration object:</p>
+
+<pre><code>var player = SR('ad-container1', {
+    tech: 'html5',
+    companion: false,
+    autoplay: true,
+    width: 778,
+    height: 468,
+    ads: {
+        url: 'sample_files/vast.xml',
+        skip: {
+            enabled: true
+        }
+    }
+});
+</code></pre>
+
+<p>Events are emitted from the player. For a complete list check out the list of events on the flash/html5 APIs. You can subscribe to events like this:</p>
+
+<pre><code>    // subscribe to the AdVideoStart event
+    player.on('AdVideoStart', function(eventDetails) {
+        console.log('ad video has actually started');
+    });
+
+    // subscribe to multiple events
+    ['AdLoaded',
+    'AdStarted',
+    'AdVolumeChange',
+    'AdImpression',
+    'AdVideoStart',
+    'AdVideoFirstQuartile',
+    'AdVideoMidpoint',
+    'AdVideoThirdQuartile',
+    'AdVideoComplete',
+    'AdClickThru',
+    'AdUserClose',
+    'AdPaused',
+    'AdPlaying',
+    'AdError',
+    'AdSkipped',
+    'AdLoadTimeout']
+        .map(function(eventName) {
+            player.on(eventName, function(eventDetails) {
+                console.log(eventName + ' from player ' + player.sessionID);
+            });
+    });
+</code></pre>
+
+<p>The player also exposes functions. For a complete list check out the list of events on the flash/html5 APIs. </p>
+
+<pre><code>if (player.getTime() &gt; 30) {
+    // do something after the video has been playing for 30 sec
+}
+
+// don't allow muting before 10 sec have passed
+var ticker = setInterval(function() {
+    if (player().getTime() &lt; 10) {
+        if (player.muted()) {
+            player.unmute();
+        } 
+    } else {
+        clearInterval(ticker)
+    }
+}, 100);
+</code></pre>
+
+<p>The HTML5 API only supports VAST tags, as VPAID tags often return flash or content otherwise problematic for the HTML5 environment. </p>
+
+<p>When using a VPAID tag (for web), set the tech to "flash". when using VAST tags (for web and mobile), use either "html5" (for web or mobile) or "flash" (for web only).</p>
+
+<pre><code>var player1 = SR('ad-container1', {
+    tech: 'flash', // ad tag can be either VAST or VPAID
+    ...
+    ...
+    ..
+});
+
+var player2 = SR('ad-container1', {
+    tech: 'html5', // ad tag has to be VAST
+    ...
+    ...
+    ..
+});
+</code></pre>
+
+<h2>
+<a id="flash-api" class="anchor" href="#flash-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flash API</h2>
+
+<h3>
+<a id="basic-functions" class="anchor" href="#basic-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic functions</h3>
+
+<ul>
+<li>id() - get player DOM element ID. e.g. "sr-player-ad22f244-e0d9-35e4-bdd4-97ebbd3367b5"</li>
+<li>play() - start playing video if not already playing</li>
+<li>pause() - pause video </li>
+<li>resume() - resume video</li>
+<li>mute() - mute video</li>
+<li>unmute() - umute video</li>
+<li>stop() - stop video</li>
+<li>seek(time) - seek to time</li>
+<li>getVolume() - get current volume</li>
+<li>setVolume(n) - set volume to n</li>
+<li>getTime() - get current time in video</li>
+<li>isPaused() - is the video currently paused?</li>
+<li>isPlaying() - is the video currently playing?</li>
+<li>isFullscreen() - is the video currently in full screen mode?</li>
+<li>toggleFullscreen() - set the video fullscreen/not full screen</li>
+<li>isLoaded() - is the player ready, all the swf's were loaded</li>
+<li>hide() - hide player</li>
+<li>show() - show player</li>
+<li>isHidden() - is the player currently hidden</li>
+<li>getClip() - get the content video that's currently set </li>
+<li>getPlaylist() - get the playlist of content video's currently set</li>
+</ul>
+
+<h3>
+<a id="properties" class="anchor" href="#properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Properties</h3>
+
+<ul>
+<li>sessionID - unique GUID to set this session apart from other possible players being used on the same page </li>
+</ul>
+
+<h3>
+<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h3>
+
+<p><strong>Video Events</strong></p>
+
+<ul>
+<li>onBegin</li>
+<li>onFinish</li>
+<li>onLastSecond</li>
+<li>onMetaData</li>
+<li>onMetaDataChange</li>
+<li>onPause</li>
+<li>onResized</li>
+<li>onResume</li>
+<li>onSeek</li>
+<li>onStart</li>
+<li>onStop</li>
+<li>onUpdate</li>
+<li>onBufferEmpty</li>
+<li>onBufferFull</li>
+<li>onBufferStop</li>
+</ul>
+
+<p><strong>Player Events</strong></p>
+
+<ul>
+<li>onBeforeClick</li>
+<li>onLoad</li>
+<li>onUnload</li>
+<li>onMouseOver</li>
+<li>onMouseOut</li>
+<li>onKeyPress</li>
+<li>onVolume</li>
+<li>onMute</li>
+<li>onUnmute</li>
+<li>onFullscreen</li>
+<li>onFullscreenExit</li>
+<li>onClipAdd</li>
+<li>onPlaylistReplace</li>
+<li>onError</li>
+</ul>
+
+<p><strong>Ad Events</strong></p>
+
+<p>for a description of ad events, please refer to the <a href="http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vast">IAB spec</a></p>
+
+<ul>
+<li>AdLoaded</li>
+<li>AdStarted</li>
+<li>AdStopped</li>
+<li>AdLinearChange</li>
+<li>AdExpandedChange</li>
+<li>AdRemainingTimeChange</li>
+<li>AdVolumeChange</li>
+<li>AdImpression</li>
+<li>AdVideoStart</li>
+<li>AdVideoFirstQuartile</li>
+<li>AdVideoMidpoint</li>
+<li>AdVideoThirdQuartile</li>
+<li>AdVideoComplete</li>
+<li>AdClickThru</li>
+<li>AdUserAcceptInvitation</li>
+<li>AdUserMinimize</li>
+<li>AdUserClose</li>
+<li>AdPaused</li>
+<li>AdPlaying</li>
+<li>AdLog</li>
+<li>AdError</li>
+<li>AdSkipped</li>
+<li>AdSizeChange</li>
+<li>AdSkippableStateChange</li>
+<li>AdDurationChange</li>
+<li>AdInteraction</li>
+</ul>
+
+<p><strong>Setting up VAST2-VPAID ad tags</strong></p>
+
+<p>to specify ads to the flash player, you need to define the ad schedule (pre-roll, mid-roll, etc.). the following is an example of setting up a preroll:</p>
+
+<pre><code>ads: {
+        pauseOnClickThrough: true,
+        schedule: [{
+            position: 'pre-roll',
+            server: {
+                type: 'direct',
+                tag: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&amp;LR_SCHEMA=vast2-vpaid'.replace(/&amp;/g, '__amp__')
+            }
+        }]
+}
+</code></pre>
+
+<h2>
+<a id="html5-api" class="anchor" href="#html5-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML5 API</h2>
+
+<h3>
+<a id="basic-functions-1" class="anchor" href="#basic-functions-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic functions</h3>
+
+<ul>
+<li>autoplay(autoplay) - set autoplay true/false</li>
+<li>bufferedPercent() - how much of the video is buffered (e.g. 25%)</li>
+<li>controls(show) - show or hide controls (e.g. controls(false) to hide)</li>
+<li>currentSrc() -  get the current source of the video</li>
+<li>currentTime() -  get the current time of the video</li>
+<li>duration() - get the duraion of the video being played </li>
+<li>ended(callback) - do something when the video ends</li>
+<li>exitFullscreen() - exit full screen if full screen is being used</li>
+<li>isFullscreen() - is full screen begin used?</li>
+<li>loop(doLoop) - loop or unloop the video</li>
+<li>muted() - is the video muted?</li>
+<li>pause() - pause the video</li>
+<li>paused() - is the video paused?</li>
+<li>play() - play the video if not already playing </li>
+<li>poster(src) - set or get the poster attribute of the video</li>
+<li>remainingTime() - how much time is left to the video to end</li>
+<li>requestFullscreen() - request full screen (HTML5 API)</li>
+<li>volume(n) - set or get the volume</li>
+<li>height(h) - set or get the video's height</li>
+<li>hide() - hide video</li>
+<li>id() - get the GUID of the video container</li>
+<li>show() - show the video if hidden</li>
+<li>width() - set or get the video's width</li>
+</ul>
+
+<h3>
+<a id="properties-1" class="anchor" href="#properties-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Properties</h3>
+
+<ul>
+<li>sessionID - unique GUID to set this session apart from other possible players being used on the same page </li>
+</ul>
+
+<h3>
+<a id="player-events" class="anchor" href="#player-events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Player Events</h3>
+
+<ul>
+<li>durationchange</li>
+<li>ended</li>
+<li>error</li>
+<li>firstplay</li>
+<li>fullscreenchange</li>
+<li>loadedalldata</li>
+<li>loadeddata</li>
+<li>loadedmetadata</li>
+<li>loadstart</li>
+<li>pause</li>
+<li>play</li>
+<li>progress</li>
+<li>seeked</li>
+<li>seeking</li>
+<li>timeupdate</li>
+<li>volumechange</li>
+<li>waiting</li>
+<li>resize </li>
+</ul>
+
+<p><strong>Ad Events</strong></p>
+
+<p>for a description of ad events, please refer to the <a href="http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vast">IAB spec</a></p>
+
+<ul>
+<li>AdLoaded</li>
+<li>AdStarted</li>
+<li>AdImpression</li>
+<li>AdVideoStart</li>
+<li>AdVideoFirstQuartile</li>
+<li>AdVideoMidpoint</li>
+<li>AdVideoThirdQuartile</li>
+<li>AdVideoComplete</li>
+<li>AdClickThru</li>
+<li>AdPaused</li>
+<li>AdPlaying</li>
+</ul>
+
+<p><strong>Setting up VAST ad tags</strong></p>
+
+<p>Just specify an ads object when initializing the player. you can optionally add skip button configurations, or disable skipping.</p>
+
+<pre><code>    var player1 = SR('ad-container1', {
+    tech: 'html5',
+    companion: false,
+    autoplay: true,
+    width: 778,
+    height: 468,
+    ads: {
+        url: '../sample_files/vast.xml',
+        skip: {
+            enabled: true,
+            btnText: 'Continue',
+            seconds: 5
+        }
+    }
+});
+</code></pre>
+        </section>
+
+        <footer>
+          Player-api-docs is maintained by <a href="https://github.com/streamrail">streamrail</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+                  <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-54018718-11");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+      </div>
+    </div>
+  </body>
+</html>
