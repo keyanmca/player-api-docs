@@ -77,6 +77,14 @@ $ cd player-api-docs &amp;&amp; npm install
     autoplay: true,
     width: 778,
     height: 468,
+    content: { // optionally show a content video after the ad
+      url:'https://sdk.streamrail.com/demos/debugger/nasa_is_with_you_when_you_fly.mp4',
+      id: 'nasa_is_with_you_when_you_fly.mp4',
+      title: 'Nasa Video',
+      description: 'Cool video by nasa',
+      keywords: 'space,nasa',
+      categories: 'science'
+    },
     ads: {
         url: 'sample_files/vast.xml',
         skip: {
@@ -155,7 +163,40 @@ var player2 = SR('ad-container1', {
 </code></pre>
 
 <h2>
-<a id="vpaid--flash-api" class="anchor" href="#vpaid--flash-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>VPAID / Flash API</h2>
+<a id="video-content" class="anchor" href="#video-content" aria-hidden="true"><span class="octicon octicon-link"></span></a>Video Content</h2>
+
+<p>Content and ads can be used independantly of each other (i.e. you can try to get ads from an ad server without having content, and of course, you can render content videos without showing ads). </p>
+
+<p>The optional content node, if used, has only one mandatory parameter - the source url of the video. The rest of the parameters are optional, but are recommended if you are using ads, as they are reported to the ad servers.</p>
+
+<pre><code>var player = SR('ad-container1', {
+    tech: 'html5',
+    companion: false,
+    autoplay: true,
+    width: 778,
+    height: 468,
+    content: { // optionally show a content video after the ad
+      url:'https://sdk.streamrail.com/demos/debugger/nasa_is_with_you_when_you_fly.mp4',
+      id: 'nasa_is_with_you_when_you_fly.mp4',
+      title: 'Nasa Video',
+      description: 'Cool video by nasa',
+      keywords: 'space,nasa',
+      categories: 'science'
+    }
+});
+</code></pre>
+
+<h2>
+<a id="flash-tech-api" class="anchor" href="#flash-tech-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flash Tech API</h2>
+
+<p>If you are using VPAID ad tags, you have to use flash tech on the player. </p>
+
+<pre><code>var player = SR('ad-container1', {
+    tech: 'flash',
+    ...
+    ...
+});
+</code></pre>
 
 <h3>
 <a id="basic-functions" class="anchor" href="#basic-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic functions</h3>
@@ -284,7 +325,16 @@ var player2 = SR('ad-container1', {
 </code></pre>
 
 <h2>
-<a id="vast--html5-api" class="anchor" href="#vast--html5-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>VAST / HTML5 API</h2>
+<a id="html5-api" class="anchor" href="#html5-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML5 API</h2>
+
+<p>If you are using VAST ads (not VPAID), then you may use HTML5 tech. If you are working with mobile web sites, use this option. </p>
+
+<pre><code>var player = SR('ad-container1', {
+    tech: 'html5',
+    ...
+    ...
+});
+</code></pre>
 
 <h3>
 <a id="basic-functions-1" class="anchor" href="#basic-functions-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic functions</h3>
