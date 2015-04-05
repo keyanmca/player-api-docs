@@ -7,9 +7,9 @@
 
 Dive into the samples:
 
-- minimalistic vast tag integration (html5, web & mobile web)
-- minimalistic vpaid tag integration (javascript & flash)
-- a sequence of two players with different skip policies
+- [minimalistic vast tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_js.html) (html5, web & mobile web)
+- [minimalistic vpaid tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_flash.html) (javascript & flash)
+- [a sequence of two players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence.html)
 
 To run the examples, first install the package deps:
 ```
