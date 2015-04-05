@@ -39,17 +39,18 @@
 <h2>
 <a id="quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h2>
 
-<p>Dive into the samples:</p>
+<p>Dive into the live samples (source available on the <a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/">github repo</a>):</p>
 
 <ul>
 <li>
-<a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_js.html">minimalistic vast tag integration</a> (html5, web &amp; mobile web)</li>
+<a href="http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html">minimalistic html5 vast tag integration</a> (html5, web &amp; mobile web)</li>
 <li>
-<a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_flash.html">minimalistic vpaid tag integration</a> (javascript &amp; flash)</li>
-<li><a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence.html">a sequence of two players with different skip policies</a></li>
+<a href="http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html">minimalistic flash vpaid tag integration</a> (javascript &amp; flash)</li>
+<li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html">a sequence of two html5 players with different skip policies</a></li>
+<li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html">a sequence of two flash players with different skip policies</a></li>
 </ul>
 
-<p>To run the examples, clone the repo and install the package deps:</p>
+<p>To run the examples on your machine, clone the repo and install the package deps:</p>
 
 <pre><code>$ git clone https://github.com/streamrail/player-api-docs.git
 $ cd player-api-docs &amp;&amp; npm install
@@ -154,7 +155,7 @@ var player2 = SR('ad-container1', {
 </code></pre>
 
 <h2>
-<a id="flash-api" class="anchor" href="#flash-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flash API</h2>
+<a id="vpaid--flash-api" class="anchor" href="#vpaid--flash-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>VPAID / Flash API</h2>
 
 <h3>
 <a id="basic-functions" class="anchor" href="#basic-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic functions</h3>
@@ -166,6 +167,7 @@ var player2 = SR('ad-container1', {
 <li>resume() - resume video</li>
 <li>mute() - mute video</li>
 <li>unmute() - umute video</li>
+<li>dispose() - remove the instance of player from the page and turn off the events for this instance</li>
 <li>stop() - stop video</li>
 <li>seek(time) - seek to time</li>
 <li>getVolume() - get current volume</li>
@@ -282,7 +284,7 @@ var player2 = SR('ad-container1', {
 </code></pre>
 
 <h2>
-<a id="html5-api" class="anchor" href="#html5-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML5 API</h2>
+<a id="vast--html5-api" class="anchor" href="#vast--html5-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>VAST / HTML5 API</h2>
 
 <h3>
 <a id="basic-functions-1" class="anchor" href="#basic-functions-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic functions</h3>
@@ -293,6 +295,7 @@ var player2 = SR('ad-container1', {
 <li>controls(show) - show or hide controls (e.g. controls(false) to hide)</li>
 <li>currentSrc() -  get the current source of the video</li>
 <li>currentTime() -  get the current time of the video</li>
+<li>dispose() - remove the instance of player from the page and turn off the events for this instance</li>
 <li>duration() - get the duraion of the video being played </li>
 <li>ended(callback) - do something when the video ends</li>
 <li>exitFullscreen() - exit full screen if full screen is being used</li>
