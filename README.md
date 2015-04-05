@@ -11,9 +11,10 @@ Dive into the samples:
 - [minimalistic vpaid tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_flash.html) (javascript & flash)
 - [a sequence of two players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence.html)
 
-To run the examples, first install the package deps:
+To run the examples, clone the repo and install the package deps:
 ```
-cd player-api-docs && npm install
+$ git clone https://github.com/streamrail/player-api-docs.git
+$ cd player-api-docs && npm install
 ```
 
 then run a local connect server:
