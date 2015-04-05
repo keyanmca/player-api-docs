@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="../css/player.css">
+</head>
+<body layout="column">
+	<div class="cell video">
+		<div class="container center" id="ad-container1">
+		</div>
+		<div class="container center" id="ad-container2">
+		</div>
+	</div>
+</div>
+<script src="https://sdk.streamrail.com/3762742e-0300-4fc6-a171-9e602bdda709/sr.js"></script>
+<script type="text/javascript">
+
+	// events we are interested in capturing
+	var events = 
+	['AdLoaded',
+	'AdStarted',
+	'AdVolumeChange',
+	'AdImpression',
+	'AdVideoStart',
+	'AdVideoFirstQuartile',
+	'AdVideoMidpoint',
+	'AdVideoThirdQuartile',
+	'AdVideoComplete',
+	'AdClickThru',
+	'AdUserClose',
+	'AdPaused',
+	'AdPlaying',
+	'AdError',
+	'AdSkipped',
+	'AdLoadTimeout',
+	'AdStopped'];
+
+	// init the first player
+	var player1 = SR('ad-container1', {
+		tech: 'flash',
+		companion: false,
+		autoplay: true,
+		width: 778,
+		height: 468,
+		ads: {
+			pauseOnClickThrough: true,
+			schedule: [{
+				position: 'pre-roll',
+				server: {
+					type: 'direct',
+					tag: 'https://sdk.streamrail.com/demos/player-page/srvast.xml'
+				}
+			}]
+		}
+	});
+
+	// listen on all events for for the first player
+	events.map(function(x) {
+		player1.on(x, function() {
+			console.log(x + ' from player ' + player1.sessionID);
+		});
+	});
+
+	// when the first player shoots the ended event, create a second player in the div beneath
+	player1.on('AdVideoComplete', function() {
+		player1.dispose();
+		var player2 = SR('ad-container2', {
+			tech: 'flash',
+			companion: false,
+			autoplay: true,
+			width: 778,
+			height: 468,
+			ads: {
+				pauseOnClickThrough: true,
+				schedule: [{
+					position: 'pre-roll',
+					server: {
+						type: 'direct',
+						tag: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid'.replace(/&/g, '__amp__')
+					}
+				}]
+			}
+		});
+		// register to all events for the second player
+		events.map(function(x) {
+			player2.on(x, function() {
+				console.log(x + ' from player ' + player2.sessionID);
+			});
+		});
+	});	
+</script>
+</body>
+</html>

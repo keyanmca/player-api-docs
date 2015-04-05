@@ -5,13 +5,14 @@
 
 ## Quickstart
 
-Dive into the samples:
+Dive into the live samples (source available on the [github repo](https://github.com/streamrail/player-api-docs/blob/master/app/examples/)):
 
-- [minimalistic vast tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_js.html) (html5, web & mobile web)
-- [minimalistic vpaid tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_flash.html) (javascript & flash)
-- [a sequence of two players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence.html)
+- [minimalistic html5 vast tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html) (html5, web & mobile web)
+- [minimalistic flash vpaid tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html) (javascript & flash)
+- [a sequence of two html5 players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html)
+- [a sequence of two flash players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html)
 
-To run the examples, clone the repo and install the package deps:
+To run the examples on your machine, clone the repo and install the package deps:
 ```
 $ git clone https://github.com/streamrail/player-api-docs.git
 $ cd player-api-docs && npm install
@@ -110,7 +111,7 @@ When using a VPAID tag (for web), set the tech to "flash". when using VAST tags 
 		..
 	});
 	
-## Flash API
+## VPAID / Flash API
 
 ### Basic functions
 
@@ -120,6 +121,7 @@ When using a VPAID tag (for web), set the tech to "flash". when using VAST tags 
 - resume() - resume video
 - mute() - mute video
 - unmute() - umute video
+- dispose() - remove the instance of player from the page and turn off the events for this instance
 - stop() - stop video
 - seek(time) - seek to time
 - getVolume() - get current volume
@@ -223,7 +225,7 @@ to specify ads to the flash player, you need to define the ad schedule (pre-roll
 			}]
 	}
 
-## HTML5 API
+## VAST / HTML5 API
 
 ### Basic functions
 
@@ -232,6 +234,7 @@ to specify ads to the flash player, you need to define the ad schedule (pre-roll
 - controls(show) - show or hide controls (e.g. controls(false) to hide)
 - currentSrc() -  get the current source of the video
 - currentTime() -  get the current time of the video
+- dispose() - remove the instance of player from the page and turn off the events for this instance
 - duration() - get the duraion of the video being played 
 - ended(callback) - do something when the video ends
 - exitFullscreen() - exit full screen if full screen is being used

@@ -7,8 +7,6 @@
 	<div class="cell video">
 		<div class="container center" id="ad-container1">
 		</div>
-		<div class="container center" id="ad-container2">
-		</div>
 	</div>
 </div>
 <script src="https://sdk.streamrail.com/3762742e-0300-4fc6-a171-9e602bdda709/sr.js"></script>
@@ -59,14 +57,15 @@
 
 	// when the first player shoots the ended event, create a second player in the div beneath
 	player1.on('ended', function() {
-		var player2 = SR('ad-container2', {
+		player1.dispose()
+		var player2 = SR('ad-container1', {
 			tech: 'html5',
 			companion: false,
 			autoplay: true,
 			width: 778,
 			height: 468,
 			ads: {
-				url: '../sample_files/vast.xml',
+				url: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2',
 				skip: {
 					enabled: true,
 					btnText: 'Skip',
