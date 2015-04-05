@@ -38,6 +38,14 @@ To get an instance of the player, supply the ID of the container, and a configur
 		autoplay: true,
 		width: 778,
 		height: 468,
+		content: { // optionally show a content video after the ad
+          url:'https://sdk.streamrail.com/demos/debugger/nasa_is_with_you_when_you_fly.mp4',
+          id: 'nasa_is_with_you_when_you_fly.mp4',
+          title: 'Nasa Video',
+          description: 'Cool video by nasa',
+          keywords: 'space,nasa',
+          categories: 'science'
+	    },
 		ads: {
 			url: 'sample_files/vast.xml',
 			skip: {
@@ -110,8 +118,39 @@ When using a VPAID tag (for web), set the tech to "flash". when using VAST tags 
 		...
 		..
 	});
+
+## Video Content
+
+Content and ads can be used independantly of each other (i.e. you can try to get ads from an ad server without having content, and of course, you can render content videos without showing ads). 
+
+The optional content node, if used, has only one mandatory parameter - the source url of the video. The rest of the parameters are optional, but are recommended if you are using ads, as they are reported to the ad servers.
+
+	var player = SR('ad-container1', {
+		tech: 'html5',
+		companion: false,
+		autoplay: true,
+		width: 778,
+		height: 468,
+		content: { // optionally show a content video after the ad
+          url:'https://sdk.streamrail.com/demos/debugger/nasa_is_with_you_when_you_fly.mp4',
+          id: 'nasa_is_with_you_when_you_fly.mp4',
+          title: 'Nasa Video',
+          description: 'Cool video by nasa',
+          keywords: 'space,nasa',
+          categories: 'science'
+	    }
+	});
+
 	
-## VPAID / Flash API
+## Flash Tech API
+
+If you are using VPAID ad tags, you have to use flash tech on the player. 
+
+	var player = SR('ad-container1', {
+		tech: 'flash',
+		...
+		...
+	});
 
 ### Basic functions
 
@@ -225,7 +264,17 @@ to specify ads to the flash player, you need to define the ad schedule (pre-roll
 			}]
 	}
 
-## VAST / HTML5 API
+## HTML5 API
+
+If you are using VAST ads (not VPAID), then you may use HTML5 tech. If you are working with mobile web sites, use this option. 
+
+
+	var player = SR('ad-container1', {
+		tech: 'html5',
+		...
+		...
+	});
+
 
 ### Basic functions
 
