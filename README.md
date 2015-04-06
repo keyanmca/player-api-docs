@@ -12,6 +12,7 @@ Dive into the live samples (source available on the [github repo](https://github
 
 - [minimalistic html5 vast tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html) (html5, web & mobile web)
 - [minimalistic flash vpaid tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html) (javascript & flash)
+- [vpaid preloading with flash](http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html) (javascript & flash)
 - [a sequence of two html5 players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html)
 - [a sequence of two flash players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html)
 - Use the [VAST inspector](http://sdk.streamrail.com/vast-inspector/index.html) to test out your VAST tags.
@@ -157,6 +158,7 @@ If you are using VPAID ad tags, you have to use flash tech on the player.
 
 - id() - get player DOM element ID. e.g. "sr-player-ad22f244-e0d9-35e4-bdd4-97ebbd3367b5"
 - play() - start playing video if not already playing
+- playPreloaded() - start playing an ad that was preloaded. this is only possible if preloadMode was set to true in the general configuration object (this means that ad would not start immediatly, but would be instead prelaoded and waiting for the playPreloaded function call to begin.
 - pause() - pause video 
 - resume() - resume video
 - mute() - mute video
@@ -265,6 +267,7 @@ to specify ads to the flash player, you need to define the ad schedule (pre-roll
 			}]
 	}
 
+normally the ad would start immediatly when choosing to autoplay. however, it is possible to specify preloadMode to load the ad without starting it. See example on [vpaid preloading with flash](http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html) (javascript & flash) 
 ## <a name="html5-api"></a> HTML5 Tech API
 
 If you are using VAST ads (not VPAID), then you may use HTML5 tech. If you are working with mobile web sites, use this option. 
