@@ -52,6 +52,8 @@
 <a href="http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html">minimalistic html5 vast tag integration</a> (html5, web &amp; mobile web)</li>
 <li>
 <a href="http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html">minimalistic flash vpaid tag integration</a> (javascript &amp; flash)</li>
+<li>
+<a href="http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html">vpaid preloading with flash</a> (javascript &amp; flash)</li>
 <li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html">a sequence of two html5 players with different skip policies</a></li>
 <li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html">a sequence of two flash players with different skip policies</a></li>
 <li>Use the <a href="http://sdk.streamrail.com/vast-inspector/index.html">VAST inspector</a> to test out your VAST tags.</li>
@@ -211,6 +213,7 @@ var player2 = SR('ad-container1', {
 <ul>
 <li>id() - get player DOM element ID. e.g. "sr-player-ad22f244-e0d9-35e4-bdd4-97ebbd3367b5"</li>
 <li>play() - start playing video if not already playing</li>
+<li>playPreloaded() - start playing an ad that was preloaded. this is only possible if preloadMode was set to true in the general configuration object (this means that ad would not start immediatly, but would be instead prelaoded and waiting for the playPreloaded function call to begin.</li>
 <li>pause() - pause video </li>
 <li>resume() - resume video</li>
 <li>mute() - mute video</li>
@@ -330,6 +333,8 @@ var player2 = SR('ad-container1', {
         }]
 }
 </code></pre>
+
+<p>normally the ad would start immediatly when choosing to autoplay. however, it is possible to specify preloadMode to load the ad without starting it. See example on <a href="http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html">vpaid preloading with flash</a> (javascript &amp; flash) </p>
 
 <h2>
 <a id="-html5-tech-api" class="anchor" href="#-html5-tech-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>
