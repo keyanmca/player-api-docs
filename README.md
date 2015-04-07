@@ -262,7 +262,7 @@ to specify ads to the flash player, you need to define the ad schedule (pre-roll
 				position: 'pre-roll',
 				server: {
 					type: 'direct',
-					tag: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid'.replace(/&/g, '__amp__')
+					tag: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid'
 				}
 			}]
 	}
