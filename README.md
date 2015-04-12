@@ -254,7 +254,7 @@ for a description of ad events, please refer to the [IAB spec](http://www.iab.ne
 - AdDurationChange
 - AdInteraction
 
-The AdError event has an additinal details object. To obtain it:
+The AdError event has an additional details object. To obtain it:
 
 	player.on('AdError', function(event, data) {
 		console.log('error code:', data.code);
