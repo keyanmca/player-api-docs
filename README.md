@@ -10,11 +10,12 @@
 
 Dive into the live samples (source available on the [github repo](https://github.com/streamrail/player-api-docs/blob/master/app/examples/)):
 
-- [minimalistic html5 vast tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html) (html5, web & mobile web)
-- [minimalistic flash vpaid tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html) (javascript & flash)
-- [vpaid preloading with flash](http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html) (javascript & flash)
-- [a sequence of two html5 players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html)
-- [a sequence of two flash players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html)
+- [Minimalistic html5 vast tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html) (html5, web & mobile web)
+- [Minimalistic flash vpaid tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html) (javascript & flash)
+- [Vpaid preloading with flash](http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html) (javascript & flash)
+- [Vpaid preloading with flash, bring player to front only after prelaod is done](http://sdk.streamrail.com/vast-inspector/examples/flash_reload_reveal_after.html) (javascript & flash)
+- [A sequence of two html5 players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html)
+- [A sequence of two flash players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html)
 - Use the [VAST inspector](http://sdk.streamrail.com/vast-inspector/index.html) to test out your VAST tags.
 
 To run the examples on your machine, clone the repo and install the package deps:
@@ -120,6 +121,7 @@ When using a VPAID tag (for web), set the tech to "flash". when using VAST tags 
 		...
 		..
 	});
+
 
 ## <a name="video-content"></a>Video Content
 
@@ -252,6 +254,16 @@ for a description of ad events, please refer to the [IAB spec](http://www.iab.ne
 - AdDurationChange
 - AdInteraction
 
+The AdError event has an additinal details object. To obtain it:
+
+	player.on('AdError', function(event, data) {
+		console.log('error code:', data.code);
+		console.log('error description:', description);
+		// console output would look like:
+		// error code: -1
+		// error description: Publisher ID not valid.
+	});
+	
 **Setting up VAST2-VPAID ad tags**
 
 to specify ads to the flash player, you need to define the ad schedule (pre-roll, mid-roll, etc.). the following is an example of setting up a preroll:
