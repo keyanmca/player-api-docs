@@ -1,37 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta charset="UTF-8">
     <title>Player-api-docs by streamrail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <section class="page-header">
+      <h1 class="project-name">Player-api-docs</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/streamrail/player-api-docs" class="btn">View on GitHub</a>
+      <a href="https://github.com/streamrail/player-api-docs/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/streamrail/player-api-docs/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <header>
-          <h1>Player-api-docs</h1>
-          <h2></h2>
-        </header>
-
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/streamrail/player-api-docs/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/streamrail/player-api-docs/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/streamrail/player-api-docs" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h1>
+    <section class="main-content">
+      <h1>
 <a id="streamrail-video-player-for-web" class="anchor" href="#streamrail-video-player-for-web" aria-hidden="true"><span class="octicon octicon-link"></span></a>streamrail video player for web</h1>
 
 <p><img src="https://avatars2.githubusercontent.com/u/8501254?v=3&amp;s=200" alt="streamrail logo"></p>
@@ -49,13 +37,15 @@
 
 <ul>
 <li>
-<a href="http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html">minimalistic html5 vast tag integration</a> (html5, web &amp; mobile web)</li>
+<a href="http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html">Minimalistic html5 vast tag integration</a> (html5, web &amp; mobile web)</li>
 <li>
-<a href="http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html">minimalistic flash vpaid tag integration</a> (javascript &amp; flash)</li>
+<a href="http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html">Minimalistic flash vpaid tag integration</a> (javascript &amp; flash)</li>
 <li>
-<a href="http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html">vpaid preloading with flash</a> (javascript &amp; flash)</li>
-<li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html">a sequence of two html5 players with different skip policies</a></li>
-<li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html">a sequence of two flash players with different skip policies</a></li>
+<a href="http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html">Vpaid preloading with flash</a> (javascript &amp; flash)</li>
+<li>
+<a href="http://sdk.streamrail.com/vast-inspector/examples/flash_reload_reveal_after.html">Vpaid preloading with flash, bring player to front only after prelaod is done</a> (javascript &amp; flash)</li>
+<li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html">A sequence of two html5 players with different skip policies</a></li>
+<li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html">A sequence of two flash players with different skip policies</a></li>
 <li>Use the <a href="http://sdk.streamrail.com/vast-inspector/index.html">VAST inspector</a> to test out your VAST tags.</li>
 </ul>
 
@@ -318,6 +308,17 @@ var player2 = SR('ad-container1', {
 <li>AdInteraction</li>
 </ul>
 
+<p>The AdError event has an additional details object. To obtain it:</p>
+
+<pre><code>player.on('AdError', function(event, data) {
+    console.log('error code:', data.code);
+    console.log('error description:', description);
+    // console output would look like:
+    // error code: -1
+    // error description: Publisher ID not valid.
+});
+</code></pre>
+
 <p><strong>Setting up VAST2-VPAID ad tags</strong></p>
 
 <p>to specify ads to the flash player, you need to define the ad schedule (pre-roll, mid-roll, etc.). the following is an example of setting up a preroll:</p>
@@ -448,14 +449,16 @@ var player2 = SR('ad-container1', {
     }
 });
 </code></pre>
-        </section>
 
-        <footer>
-          Player-api-docs is maintained by <a href="https://github.com/streamrail">streamrail</a><br>
-          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/streamrail/player-api-docs">Player-api-docs</a> is maintained by <a href="https://github.com/streamrail">streamrail</a>.</span>
 
-                  <script type="text/javascript">
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -466,7 +469,6 @@ var player2 = SR('ad-container1', {
             } catch(err) {}
           </script>
 
-      </div>
-    </div>
   </body>
 </html>
+
