@@ -258,11 +258,17 @@ The AdError event has an additional details object. To obtain it:
 
 	player.on('AdError', function(event, data) {
 		console.log('error code:', data.code);
-		console.log('error description:', description);
+		console.log('error description:', data.description);
 		// console output would look like:
 		// error code: -1
 		// error description: Publisher ID not valid.
 	});
+	
+On top of IAB ad errors, the following errors are reported with -1 error code
+
+- "vast could not be loaded from url." - the http request to the VAST endpoint returned an error (e.g. 404 or 403)
+- "vast response is not well-formed." - the VAST XML contains invalid VAST nodes
+- "Publisher ID not valid" - specific LiveRail error
 	
 **Setting up VAST2-VPAID ad tags**
 
@@ -349,6 +355,7 @@ If you are using VAST ads (not VPAID), then you may use HTML5 tech. If you are w
 for a description of ad events, please refer to the [IAB spec](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vast)
 
 - AdLoaded
+- AdError
 - AdStarted
 - AdImpression
 - AdVideoStart
@@ -360,6 +367,20 @@ for a description of ad events, please refer to the [IAB spec](http://www.iab.ne
 - AdPaused
 - AdPlaying
 
+The AdError event has an additional details object. To obtain it:
+
+	player.on('AdError', function(eventData) {
+		console.log('error code:', eventData.code);
+		console.log('error description:', eventData. description);
+		// console output would look like:
+		// error code: -1
+		// error description: vast response is not well formed
+	});
+	
+
+On top of IAB ad errors, the following errors are reported with -1 error code
+
+- "vast response error or empty vast." - the http request to the VAST endpoint returned an error (malformed XML) or an empty vast.
 
 **Setting up VAST ad tags**
 
