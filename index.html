@@ -312,12 +312,20 @@ var player2 = SR('ad-container1', {
 
 <pre><code>player.on('AdError', function(event, data) {
     console.log('error code:', data.code);
-    console.log('error description:', description);
+    console.log('error description:', data.description);
     // console output would look like:
     // error code: -1
     // error description: Publisher ID not valid.
 });
 </code></pre>
+
+<p>On top of IAB ad errors, the following errors are reported with -1 error code</p>
+
+<ul>
+<li>"vast could not be loaded from url." - the http request to the VAST endpoint returned an error (e.g. 404 or 403)</li>
+<li>"vast response is not well-formed." - the VAST XML contains invalid VAST nodes</li>
+<li>"Publisher ID not valid" - specific LiveRail error</li>
+</ul>
 
 <p><strong>Setting up VAST2-VPAID ad tags</strong></p>
 
@@ -417,6 +425,7 @@ var player2 = SR('ad-container1', {
 
 <ul>
 <li>AdLoaded</li>
+<li>AdError</li>
 <li>AdStarted</li>
 <li>AdImpression</li>
 <li>AdVideoStart</li>
@@ -427,6 +436,23 @@ var player2 = SR('ad-container1', {
 <li>AdClickThru</li>
 <li>AdPaused</li>
 <li>AdPlaying</li>
+</ul>
+
+<p>The AdError event has an additional details object. To obtain it:</p>
+
+<pre><code>player.on('AdError', function(eventData) {
+    console.log('error code:', eventData.code);
+    console.log('error description:', eventData. description);
+    // console output would look like:
+    // error code: -1
+    // error description: vast response is not well formed
+});
+</code></pre>
+
+<p>On top of IAB ad errors, the following errors are reported with -1 error code</p>
+
+<ul>
+<li>"vast response error or empty vast." - the http request to the VAST endpoint returned an error (malformed XML) or an empty vast.</li>
 </ul>
 
 <p><strong>Setting up VAST ad tags</strong></p>
