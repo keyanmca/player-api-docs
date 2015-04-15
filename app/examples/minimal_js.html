@@ -11,18 +11,28 @@
 </div>
 <script src="https://sdk.streamrail.com/3762742e-0300-4fc6-a171-9e602bdda709/sr.js"></script>
 <script type="text/javascript">
-	var player1 = SR('ad-container1', {
+	var player = SR('ad-container1', {
 		tech: 'html5',
 		companion: false,
 		autoplay: true,
 		width: 778,
 		height: 468,
 		ads: {
-			url: '../sample_files/vast.xml',
+			url: 'http://wefewdewde.xml',
 			skip: {
 				enabled: true
 			}
 		}
+	});
+
+	player.on('AdError', function(event, data) {
+		if (!data) {
+			data = {
+				code: event.code,
+				description: event.description
+			}
+		}
+		console.log(data);
 	});
 </script>
 </body>

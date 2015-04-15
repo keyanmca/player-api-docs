@@ -5,14 +5,14 @@
 </head>
 <body layout="column">
 	<div class="cell video">
-		<button id="btnStart" disabled onclick="player1.playPreloaded();" style="background:white;color:black;">Preloading...</button>
+		<button id="btnStart" disabled onclick="player.playPreloaded();" style="background:white;color:black;">Preloading...</button>
 		<div class="container center" id="ad-container1">
 		</div>
 	</div>
 </div>
 <script src="https://sdk.streamrail.com/3762742e-0300-4fc6-a171-9e602bdda709/sr.js"></script>
 <script type="text/javascript">
-	var player1 =  window.player1 = SR('ad-container1', {
+	var player =  window.player = SR('ad-container1', {
 		tech: 'flash',
 		companion: false,
 		autoplay: true,
@@ -30,31 +30,16 @@
 			}]
 		}
 	});
-	var events = 
-	['AdLoaded',
-	'AdStarted',
-	'AdVolumeChange',
-	'AdImpression',
-	'AdVideoStart',
-	'AdVideoFirstQuartile',
-	'AdVideoMidpoint',
-	'AdVideoThirdQuartile',
-	'AdVideoComplete',
-	'AdClickThru',
-	'AdUserClose',
-	'AdPaused',
-	'AdPlaying',
-	'AdError',
-	'AdSkipped',
-	'AdLoadTimeout'];
-
-	events.map(function(x) {
-		player1.on(x, function() {
-			console.log(x + ' from player ' + player1.sessionID);
-		});
-	});
-
-	player1.on('AdLoaded', function() { // ad is preloaded
+	player.on('AdError', function(event, data) {
+		if (!data) {
+			data = {
+				code: event.code,
+				description: event.description
+			}
+		}
+		console.log(data);
+	})
+	player.on('AdLoaded', function() { // ad is preloaded
 		document.getElementById('btnStart').disabled = false;
 		document.getElementById('btnStart').innerText = 'Start!';
 	});
