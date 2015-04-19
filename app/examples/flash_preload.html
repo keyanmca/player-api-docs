@@ -10,6 +10,7 @@
 		</div>
 	</div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://sdk.streamrail.com/3762742e-0300-4fc6-a171-9e602bdda709/sr.js"></script>
 <script type="text/javascript">
 	var player =  window.player = SR('ad-container1', {
@@ -40,8 +41,8 @@
 		console.log(data);
 	})
 	player.on('AdLoaded', function() { // ad is preloaded
-		document.getElementById('btnStart').disabled = false;
-		document.getElementById('btnStart').innerText = 'Start!';
+		$('#btnStart').attr('disabled', false);
+		$('#btnStart').text('Start!');
 	});
 
 </script>

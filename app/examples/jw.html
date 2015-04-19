@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="../css/player.css">
+</head>
+<body layout="column">
+	<div class="cell video">
+		<div class="container center" id="jw-container">
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="https://sdk.streamrail.com/jwplayer/jwplayer.js"></script>
+<script type="text/javascript" src="https://sdk.streamrail.com/jwplayer/jwplayer.streamrail.js"></script>
+<script type="text/javascript">
+	var settings = {
+		file: 'https://sdk.streamrail.com/pepsi/cdn/0.0.1/4067bfbe7ebfaa8551d5548ada69d8a40936ff40/dash/manifest_hd.mpd',
+		autostart: true,
+		fallback: false,
+		width: 640,
+		height: 320
+	}
+	jwplayer.key = 'LJu3LqXr6x1yi4MI';
+	jwplayer('jw-container').setup(settings);
+</script>
+</body>
+</html>

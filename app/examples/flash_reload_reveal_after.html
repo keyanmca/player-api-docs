@@ -72,8 +72,8 @@
 	});
 
 	player1.on('AdLoaded', function() { // ad is preloaded
-		document.getElementById('btnStart').disabled = false;
-		document.getElementById('btnStart').innerText = 'Start!';
+		$('#btnStart').attr('disabled', false);
+		$('#btnStart').text('Start!');
 	});
 
 	function playAfterPreload() {
