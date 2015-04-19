@@ -46,7 +46,9 @@
 <a href="http://sdk.streamrail.com/vast-inspector/examples/flash_reload_reveal_after.html">Vpaid preloading with flash, bring player to front only after prelaod is done</a> (javascript &amp; flash)</li>
 <li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html">A sequence of two html5 players with different skip policies</a></li>
 <li><a href="http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html">A sequence of two flash players with different skip policies</a></li>
-<li>Use the <a href="http://sdk.streamrail.com/vast-inspector/index.html">VAST inspector</a> to test out your VAST tags.</li>
+<li>Use the <a href="http://sdk.streamrail.com/vast-inspector/index.html">Playground</a> to test out your VAST tags.</li>
+<li><a href="http://sdk.streamrail.com/vast-inspector/examples/jw.html">Minimalistic JW Player 6.12 integration</a></li>
+<li>Minimal Video.js integration (coming soon)</li>
 </ul>
 
 <p>To run the examples on your machine, clone the repo and install the package deps:</p>
@@ -475,6 +477,41 @@ var player2 = SR('ad-container1', {
     }
 });
 </code></pre>
+
+<h2>
+<a id="-streamrail-for-jw-player" class="anchor" href="#-streamrail-for-jw-player" aria-hidden="true"><span class="octicon octicon-link"></span></a>
+<a name="jw_plugin"></a> Streamrail for JW Player</h2>
+
+<p>If you are already using JW Player (version 6.12.x) you could integrate Streamrail's delivery technology simply by including the Streamrail JW Player plugin like so:</p>
+
+<p>First, include your JW Player script as you would normally do:</p>
+
+<pre><code>&lt;script type="text/javascript" src="https://sdk.streamrail.com/jwplayer/jwplayer.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Then, include the Streamrail JW Plugin that you were given by your Streamrail account manager:</p>
+
+<pre><code>&lt;script type="text/javascript" src="https://sdk.streamrail.com/jwplayer/jwplayer.streamrail.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>And that's it, your'e done. Streamrail's plugin will connect to the JW Player instance and provide on-the-fly DASH transcoding on top of Streamrail's CDN network. </p>
+
+<p>You could input a DASH stream directly if you already have one like so:</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+    var settings = {
+        file: 'https://sdk.streamrail.com/pepsi/cdn/0.0.1/4067bfbe7ebfaa8551d5548ada69d8a40936ff40/dash/manifest_hd.mpd',
+        autostart: true,
+        fallback: false,
+        width: 640,
+        height: 320
+    }
+    jwplayer.key = '&lt;your JW Player key&gt;';
+    jwplayer('jw-container').setup(settings);
+&lt;/script&gt;
+</code></pre>
+
+<p>For a complete example of playing a DASH stream using JW Player and Streamrail's plugin, see <a href="http://sdk.streamrail.com/vast-inspector/examples/jw.html">Minimalistic JW Player 6.12 integration</a>, or view the JW Player example on the  <a href="http://sdk.streamrail.com/vast-inspector/index.html#/jw">Playground</a>.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/streamrail/player-api-docs">Player-api-docs</a> is maintained by <a href="https://github.com/streamrail">streamrail</a>.</span>
