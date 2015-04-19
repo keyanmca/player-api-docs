@@ -4,7 +4,7 @@
 
 ## Overview
 
-[Quickstart & Examples](#quickstart) | [General](#general) | [Video Content](#video-content) | [Flash Tech API](#flash-api) | [HTML5 Tech API] (#html5-api)
+[Quickstart & Examples](#quickstart) | [General](#general) | [Video Content](#video-content) | [Flash Tech API](#flash-api) | [HTML5 Tech API] (#html5-api) | [Streamrail for JW Player](#jw_plugin) | Streamrail for Video.js (coming soon!) 
 
 ## <a name="quickstart"></a> Quickstart
 
