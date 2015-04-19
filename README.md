@@ -416,9 +416,9 @@ Then, include the Streamrail JW Plugin that you were given by your Streamrail ac
 
 	<script type="text/javascript" src="https://sdk.streamrail.com/jwplayer/jwplayer.streamrail.js"></script>
 
-And that's it, your'e done. Streamrail's plugin will connect to the JW Player instance and provide on-the-fly DASH transcoding on top of Streamrail's CDN network. 
+And that's it, your'e done. Streamrail's plugin will connect to the JW Player instance and provide on-the-fly [DASH](http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) transcoding on top of Streamrail's CDN network. 
 
-You could input a DASH stream directly if you already have one like so:
+You could also input a DASH stream directly if you already have one like so:
 
 	<script type="text/javascript">
 		var settings = {
