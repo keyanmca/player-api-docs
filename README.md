@@ -416,7 +416,19 @@ Then, include the Streamrail JW Plugin that you were given by your Streamrail ac
 
 	<script type="text/javascript" src="https://sdk.streamrail.com/jwplayer/jwplayer.streamrail.js"></script>
 
-And that's it, your'e done. Streamrail's plugin will connect to the JW Player instance and provide on-the-fly [DASH](http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) transcoding on top of Streamrail's CDN network. 
+And that's it, your'e done. Streamrail's plugin will connect to the JW Player instance and provide on-the-fly [DASH](http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) transcoding on top of Streamrail's CDN network. Streamrail's plugin will automatically serve the video from the Streamrail CDN **after a few minutes** (the video is first transcoded and the Streamrail cache is warmed up before it takes control over the delivery process).
+
+So, for example, if you set the JW Player settings objects with a reference to a video (mp4/mov etc.) like so:
+
+	var settings = {
+			file: 'http://ftp.nluug.nl/pub/graphics/blender/demo/movies/ToS/ToS-4k-1920.mov',
+			autostart: true,
+			fallback: false,
+			width: 640,
+			height: 320
+		}
+		
+Once the input video is ready to be delivered from the Streamrail CDN, it will automatically switch to using Streamrail CDN (until then, the video will be played from your original CDN as usual).
 
 You could also input a DASH stream directly if you already have one like so:
 
