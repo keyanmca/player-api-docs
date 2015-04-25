@@ -1,4 +1,4 @@
-# streamrail video player for web
+# streamrail video player for web/mobile web
 
 ![streamrail logo](https://avatars2.githubusercontent.com/u/8501254?v=3&s=200)
 
