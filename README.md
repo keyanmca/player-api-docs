@@ -4,7 +4,7 @@
 
 ## Overview
 
-[Quickstart & Examples](#quickstart) | [General](#general) | [Video Content](#video-content) | [Flash Tech API](#flash-api) | [HTML5 Tech API] (#html5-api) | [Streamrail for JW Player](#jw_plugin) | Streamrail for Video.js (coming soon!) 
+[Quickstart & Examples](#quickstart) | [General](#general) | [Video Content](#video-content) | [Flash Tech API](#flash-api) | [HTML5 Tech API] (#html5-api) | [Streamrail for JW Player](#jw_plugin) | [Streamrail for video.js](#vjs_plugin) 
 
 ## <a name="quickstart"></a> Quickstart
 
@@ -21,15 +21,15 @@ Check out:
 
 Dive into the live samples (source available on the [github repo](https://github.com/streamrail/player-api-docs/blob/master/app/examples/)):
 
-- Minimalistic [html5 vast tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html) (html5, web & mobile web)
-- Minimalistic [flash vpaid tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html) (javascript & flash)
-- [Vpaid preloading with flash](http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html) (javascript & flash)
-- [Vpaid preloading with flash, bring player to front only after prelaod is done](http://sdk.streamrail.com/vast-inspector/examples/flash_reload_reveal_after.html) (javascript & flash)
-- A sequence of [two html5 players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html)
-- A sequence of [two flash players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html)
+- Minimalistic [html5 vast tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_js.html) (html5, web & mobile web)
+- Minimalistic [flash vpaid tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_flash.html) (javascript & flash)
+- [Vpaid preloading with flash](https://github.com/streamrail/player-api-docs/blob/master/app/examples/flash_preload.html) (javascript & flash)
+- [Vpaid preloading with flash, bring player to front only after prelaod is done](https://github.com/streamrail/player-api-docs/blob/master/app/examples/flash_reload_reveal_after.html) (javascript & flash)
+- A sequence of [two html5 players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence_html5.html)
+- A sequence of [two flash players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence_flash.html)
 - Use the [Playground](http://sdk.streamrail.com/vast-inspector/index.html) to test out your VAST tags.
-- [Minimalistic JW Player 6.12 integration](http://sdk.streamrail.com/vast-inspector/examples/jw.html)
-- [Minimalistic video.js integration](http://sdk.streamrail.com/vast-inspector/examples/vjs)
+- Minimalistic [JW Player 6.12 integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/jw.html)
+- Minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/vjs)
 
 To run the examples on your machine, clone the repo and install the package deps:
 
@@ -454,3 +454,39 @@ You could also input a DASH stream directly if you already have one like so:
 		jwplayer('jw-container').setup(settings);
 	</script>
 For a complete example of playing a DASH stream using JW Player and Streamrail's plugin, see [Minimalistic JW Player 6.12 integration](http://sdk.streamrail.com/vast-inspector/examples/jw.html), or view the JW Player example on the  [Playground](http://sdk.streamrail.com/vast-inspector/index.html#/jw).
+
+## <a name="vjs_plugin"></a> Streamrail for video.js
+
+If you are already using video.js you could integrate Streamrail's delivery technology simply by including the Streamrail video.js plugin like so:
+
+First, include your video.js script as you would normally do:
+
+	<link href="http://vjs.zencdn.net/4.6/video-js.css" rel="stylesheet">
+	<script src="http://vjs.zencdn.net/4.6/video.js"></script>
+
+Then, include the Streamrail video.js that you were given by your Streamrail account manager:
+
+	<script type="text/javascript" src="https://sdk.streamrail.com/video.js/videojs.streamrail.js"></script>
+
+Then, when initializing your video.js player, tell it that you want Streamrail plugin to be enabled like so:
+
+	videojs.streamrail = { enabled: true };
+	var player = videojs('my_video');
+	   
+And that's it, your'e done. Streamrail's plugin will connect to the video.js instance and provide on-the-fly [DASH](http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) transcoding on top of Streamrail's CDN network. Streamrail's plugin will automatically serve the video from the Streamrail CDN **after a few minutes** (the video is first transcoded and the Streamrail cache is warmed up before it takes control over the delivery process).
+
+So, for example, if you set the video with a reference to a video (mp4/mov etc.) like so:
+
+	<video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" autoplay>
+		<source src="http://sdk.streamrail.com/pepsi/cdn/0.0.1/366d5ab1829ae452b7e39122213861bc4b20d568/video.mp4" type="video/mp4">
+	</video>
+		
+Once the input video is ready to be delivered from the Streamrail CDN, it will automatically switch to using Streamrail CDN (until then, the video will be played from your original CDN as usual).
+
+You could also input a DASH stream directly if you already have one like so:
+
+	<video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" autoplay>
+		<source src="https://sdk.streamrail.com/pepsi/cdn/0.0.1/f900457ca09c6bf6680ea62281bbe7490f2c3b1f/dash/manifest.mpd" type='application/dash+xml'>
+	</video>
+		
+For a complete example of playing a DASH stream using video.js and Streamrail's plugin, see minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/vjs), or view the video.js example on the [Playground](http://sdk.streamrail.com/vast-inspector/index.html#/vjs).
