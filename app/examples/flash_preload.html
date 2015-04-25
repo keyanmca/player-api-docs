@@ -20,17 +20,25 @@
 		preloadMode: true,
 		width: 778,
 		height: 468,
-		ads: {
-			pauseOnClickThrough: true,
-			schedule: [{
-				position: 'pre-roll',
-				server: {
-					type: 'direct',
-					tag: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid'
-				}
-			}]
-		}
-	});
+		  content: { // optionally show a content video after the ad
+		  	url:'https://sdk.streamrail.com/demos/debugger/nasa_is_with_you_when_you_fly.mp4',
+		  	id: 'nasa_is_with_you_when_you_fly.mp4',
+		  	title: 'Nasa Video',
+		  	description: 'Cool video by nasa',
+		  	keywords: 'space,nasa',
+		  	categories: 'science'
+		  },
+		  ads: {
+		  	pauseOnClickThrough: true,
+		  	schedule: [{
+		  		position: 'pre-roll',
+		  		server: {
+		  			type: 'direct',
+		  			tag: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid'
+		  		}
+		  	}]
+		  }
+		});
 	player.on('AdError', function(event, data) {
 		if (!data) {
 			data = {

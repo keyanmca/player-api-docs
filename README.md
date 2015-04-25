@@ -8,17 +8,28 @@
 
 ## <a name="quickstart"></a> Quickstart
 
+### The Playground
+
+At the [Playground](http://sdk.streamrail.com/vast-inspector/index.html) you can use your own ad tags or content videos using the different players and plugins. 
+
+Check out:
+
+- The [HTML5 example](http://sdk.streamrail.com/vast-inspector/index.html#/html5), using VAST ad tags, mobile web auto-play and content videos
+- The [Flash example](http://sdk.streamrail.com/vast-inspector/index.html#/flash), using VPAID ad tags and content videos
+- Our [Plugin for JW Player](http://sdk.streamrail.com/vast-inspector/index.html#/jw) example using content videos
+- Our [Plugin for video.js](http://sdk.streamrail.com/vast-inspector/index.html#/vjs) example using content videos
+
 Dive into the live samples (source available on the [github repo](https://github.com/streamrail/player-api-docs/blob/master/app/examples/)):
 
-- [Minimalistic html5 vast tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html) (html5, web & mobile web)
-- [Minimalistic flash vpaid tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html) (javascript & flash)
+- Minimalistic [html5 vast tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_js.html) (html5, web & mobile web)
+- Minimalistic [flash vpaid tag integration](http://sdk.streamrail.com/vast-inspector/examples/minimal_flash.html) (javascript & flash)
 - [Vpaid preloading with flash](http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html) (javascript & flash)
 - [Vpaid preloading with flash, bring player to front only after prelaod is done](http://sdk.streamrail.com/vast-inspector/examples/flash_reload_reveal_after.html) (javascript & flash)
-- [A sequence of two html5 players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html)
-- [A sequence of two flash players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html)
+- A sequence of [two html5 players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_html5.html)
+- A sequence of [two flash players with different skip policies](http://sdk.streamrail.com/vast-inspector/examples/two_players_sequence_flash.html)
 - Use the [Playground](http://sdk.streamrail.com/vast-inspector/index.html) to test out your VAST tags.
 - [Minimalistic JW Player 6.12 integration](http://sdk.streamrail.com/vast-inspector/examples/jw.html)
-- Minimal Video.js integration (coming soon)
+- [Minimalistic video.js integration](http://sdk.streamrail.com/vast-inspector/examples/vjs)
 
 To run the examples on your machine, clone the repo and install the package deps:
 
@@ -438,8 +449,7 @@ You could also input a DASH stream directly if you already have one like so:
 			autostart: true,
 			fallback: false,
 			width: 640,
-			height: 320
-		}
+			height: 32
 		jwplayer.key = '<your JW Player key>';
 		jwplayer('jw-container').setup(settings);
 	</script>
