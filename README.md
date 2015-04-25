@@ -489,4 +489,4 @@ You could also input a DASH stream directly if you already have one like so:
 		<source src="https://sdk.streamrail.com/pepsi/cdn/0.0.1/f900457ca09c6bf6680ea62281bbe7490f2c3b1f/dash/manifest.mpd" type='application/dash+xml'>
 	</video>
 		
-For a complete example of playing a DASH stream using video.js and Streamrail's plugin, see minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/vjs), or view the video.js example on the [Playground](http://sdk.streamrail.com/vast-inspector/index.html#/vjs).
+For a complete example of playing a DASH stream using video.js and Streamrail's plugin, see minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/min_vjs.html), or view the video.js example on the [Playground](http://sdk.streamrail.com/vast-inspector/index.html#/vjs).
