@@ -19,7 +19,8 @@ Check out:
 - Our [Plugin for JW Player](http://play.streamrail.com/index.html#/jw) example using content videos
 - Our [Plugin for video.js](http://play.streamrail.com/index.html#/vjs) example using content videos
 
-![alt text](http://play.streamrail.com/img/screenshot.jpg?v1 "Stremarail Playground")
+[<img src="http://play.streamrail.com/img/screenshot.jpg?v1">](http://play.streamrail.com/)
+
 
 ### Code Examples
 Dive into the code samples (source available on the [github repo](https://github.com/streamrail/player-api-docs/blob/master/app/examples/)):
