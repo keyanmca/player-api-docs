@@ -6,7 +6,7 @@
 
 [Quickstart & Examples](#quickstart) | [General](#general) | [Video Content](#video-content) | [Flash Tech API](#flash-api) | [HTML5 Tech API] (#html5-api) | [Streamrail for JW Player](#jw_plugin) | [Streamrail for video.js](#vjs_plugin) 
 
-## <a name="quickstart"></a> Quickstart
+## <a name="quickstart"></a> Quickstart & Examples
 
 ### The Playground
 
@@ -19,7 +19,10 @@ Check out:
 - Our [Plugin for JW Player](http://play.streamrail.com/index.html#/jw) example using content videos
 - Our [Plugin for video.js](http://play.streamrail.com/index.html#/vjs) example using content videos
 
-Dive into the live samples (source available on the [github repo](https://github.com/streamrail/player-api-docs/blob/master/app/examples/)):
+![alt text](http://play.streamrail.com/img/screenshot.jpg?v1 "Stremarail Playground")
+
+### Code Examples
+Dive into the code samples (source available on the [github repo](https://github.com/streamrail/player-api-docs/blob/master/app/examples/)):
 
 - Minimalistic [html5 vast tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_js.html) (html5, web & mobile web)
 - Minimalistic [flash vpaid tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_flash.html) (javascript & flash)
