@@ -10,14 +10,14 @@
 
 ### The Playground
 
-At the [Playground](http://sdk.streamrail.com/vast-inspector/index.html) you can use your own ad tags or content videos using the different players and plugins. 
+At the [Playground](http://play.streamrail.com) you can use your own ad tags or content videos using the different players and plugins. 
 
 Check out:
 
-- The [HTML5 example](http://sdk.streamrail.com/vast-inspector/index.html#/html5), using VAST ad tags, mobile web auto-play and content videos
-- The [Flash example](http://sdk.streamrail.com/vast-inspector/index.html#/flash), using VPAID ad tags and content videos
-- Our [Plugin for JW Player](http://sdk.streamrail.com/vast-inspector/index.html#/jw) example using content videos
-- Our [Plugin for video.js](http://sdk.streamrail.com/vast-inspector/index.html#/vjs) example using content videos
+- The [HTML5 example](http://play.streamrail.com/index.html#/html5), using VAST ad tags, mobile web auto-play and content videos
+- The [Flash example](http://play.streamrail.com/index.html#/flash), using VPAID ad tags and content videos
+- Our [Plugin for JW Player](http://play.streamrail.com/index.html#/jw) example using content videos
+- Our [Plugin for video.js](http://play.streamrail.com/index.html#/vjs) example using content videos
 
 Dive into the live samples (source available on the [github repo](https://github.com/streamrail/player-api-docs/blob/master/app/examples/)):
 
@@ -27,7 +27,7 @@ Dive into the live samples (source available on the [github repo](https://github
 - [Vpaid preloading with flash, bring player to front only after prelaod is done](https://github.com/streamrail/player-api-docs/blob/master/app/examples/flash_reload_reveal_after.html) (javascript & flash)
 - A sequence of [two html5 players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence_html5.html)
 - A sequence of [two flash players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence_flash.html)
-- Use the [Playground](http://sdk.streamrail.com/vast-inspector/index.html) to test out your VAST tags.
+- Use the [Playground](http://play.streamrail.com/index.html) to test out your VAST tags.
 - Minimalistic [JW Player 6.12 integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/jw.html)
 - Minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/vjs)
 
@@ -298,7 +298,7 @@ to specify ads to the flash player, you need to define the ad schedule (pre-roll
 			}]
 	}
 
-normally the ad would start immediatly when choosing to autoplay. however, it is possible to specify preloadMode to load the ad without starting it. See example on [vpaid preloading with flash](http://sdk.streamrail.com/vast-inspector/examples/flash_preload.html) (javascript & flash) 
+normally the ad would start immediatly when choosing to autoplay. however, it is possible to specify preloadMode to load the ad without starting it. See example on [vpaid preloading with flash](http://play.streamrail.com/examples/flash_preload.html) (javascript & flash) 
 ## <a name="html5-api"></a> HTML5 Tech API
 
 If you are using VAST ads (not VPAID), then you may use HTML5 tech. If you are working with mobile web sites, use this option. 
@@ -453,7 +453,7 @@ You could also input a DASH stream directly if you already have one like so:
 		jwplayer.key = '<your JW Player key>';
 		jwplayer('jw-container').setup(settings);
 	</script>
-For a complete example of playing a DASH stream using JW Player and Streamrail's plugin, see [Minimalistic JW Player 6.12 integration](http://sdk.streamrail.com/vast-inspector/examples/jw.html), or view the JW Player example on the  [Playground](http://sdk.streamrail.com/vast-inspector/index.html#/jw).
+For a complete example of playing a DASH stream using JW Player and Streamrail's plugin, see [Minimalistic JW Player 6.12 integration](http://play.streamrail.com/examples/jw.html), or view the JW Player example on the  [Playground](http://play.streamrail.com/index.html#/jw).
 
 ## <a name="vjs_plugin"></a> Streamrail for video.js
 
@@ -489,4 +489,4 @@ You could also input a DASH stream directly if you already have one like so:
 		<source src="https://sdk.streamrail.com/pepsi/cdn/0.0.1/f900457ca09c6bf6680ea62281bbe7490f2c3b1f/dash/manifest.mpd" type='application/dash+xml'>
 	</video>
 		
-For a complete example of playing a DASH stream using video.js and Streamrail's plugin, see minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/min_vjs.html), or view the video.js example on the [Playground](http://sdk.streamrail.com/vast-inspector/index.html#/vjs).
+For a complete example of playing a DASH stream using video.js and Streamrail's plugin, see minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/min_vjs.html), or view the video.js example on the [Playground](http://play.streamrail.com/index.html#/vjs).
