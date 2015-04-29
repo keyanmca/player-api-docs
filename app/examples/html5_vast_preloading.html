@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="../css/player.css">
+</head>
+<body layout="column">
+	<div class="cell video">
+		<button id="btnStart" onclick="player.play();" style="background:white;color:black;">Start</button>
+		<div class="container center" id="ad-container1">
+		</div>
+	</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+<script src="http://localhost:8001/deploy/sr.dev.js"></script>
+<script type="text/javascript">
+	var player = SR('ad-container1', {
+		tech: 'html5',
+		companion: false,
+		autoplay: false,
+		width: 778,
+		height: 468,
+		ads: {
+			url: 'https://play.streamrail.com/sample_files/vast2.xml',
+			skip: {
+				enabled: true
+			}
+		}
+	});
+	player.hide();
+	player.vast.preload();
+</script>
+</body>
+</html>

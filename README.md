@@ -314,6 +314,15 @@ If you are using VAST ads (not VPAID), then you may use HTML5 tech. If you are w
 		...
 	});
 
+Normally the ad would start immediatly when choosing to autoplay. however, it is possible to specify preloadMode to load the ad without starting it:
+
+	player.vast.preload();
+	
+See example on [vast preloading with html5](https://github.com/streamrail/player-api-docs/blob/master/app/examples/html5_vast_preloading.html) (javascript).
+
+
+### Mobile web autplay
+On mobile web, the player is able to auto play some video ads. Some ads would require a warm up period for the player to be able to autoplay them, so the first few impressions would not enjoy autoplay, but after a few minutes the autoplay mechanism will kick in and you will see the ad playing without any user gesture even being made. 
 
 ### Basic functions
 
