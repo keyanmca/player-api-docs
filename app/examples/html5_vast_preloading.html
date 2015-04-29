@@ -27,6 +27,9 @@
 	});
 	player.hide();
 	player.vast.preload();
+	player.one('play', function () {
+		player.show();
+	});
 </script>
 </body>
 </html>
