@@ -466,7 +466,7 @@ You could also input a DASH stream directly if you already have one like so:
 		jwplayer.key = '<your JW Player key>';
 		jwplayer('jw-container').setup(settings);
 	</script>
-For a complete example of playing a DASH stream using JW Player and Streamrail's plugin, see [Minimalistic JW Player 6.12 integration](http://play.streamrail.com/examples/jw.html), or view the JW Player example on the  [Playground](http://play.streamrail.com/index.html#/jw).
+For a complete example of playing a DASH stream using JW Player and Streamrail's plugin, see [Minimalistic JW Player 6.12 integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/jw.html), or view the JW Player example on the  [Playground](http://play.streamrail.com/index.html#/jw).
 
 ## <a name="vjs_plugin"></a> Streamrail for video.js
 
