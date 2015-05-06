@@ -436,7 +436,7 @@ If you are already using JW Player (version 6.12.x) you could integrate Streamra
 First, include your JW Player script as you would normally do:
 
 	<script type="text/javascript" src="https://sdk.streamrail.com/jwplayer/jwplayer.js"></script>
-Then, include the Streamrail JW Plugin that you were given by your Streamrail account manager:
+Then, include the Streamrail JW Plugin that you were given by your Streamrail account manager. **Make sure that you include the streamrail script before initiating the player using JavaScript**:
 
 	<script type="text/javascript" src="https://sdk.streamrail.com/jwplayer/jwplayer.streamrail.js"></script>
 
