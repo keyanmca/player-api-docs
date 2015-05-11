@@ -383,7 +383,15 @@ var player2 = SR('ad-container1', {
 
 <p>Normally the ad would start immediatly when choosing to autoplay. however, it is possible to specify preloadMode to load the ad without starting it:</p>
 
-<pre><code>player.vast.preload();
+<pre><code>player.vast.preload()
+    .then(function(rslt) {
+        console.log(rslt);
+        // fill, rslt = Object {timeToPreload: 103, adUrl: "https://cdn-secure.liverail.com/adasset4/1331/229/7969/lo.webm"}
+    })
+    .fail(function() {
+        // no fill
+        console.log('no fill')
+    });
 </code></pre>
 
 <p>See example on <a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/html5_vast_preloading.html">vast preloading with html5</a> (javascript).</p>
