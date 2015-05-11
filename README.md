@@ -316,7 +316,15 @@ If you are using VAST ads (not VPAID), then you may use HTML5 tech. If you are w
 
 Normally the ad would start immediatly when choosing to autoplay. however, it is possible to specify preloadMode to load the ad without starting it:
 
-	player.vast.preload();
+	player.vast.preload()
+		.then(function(rslt) {
+			console.log(rslt);
+			// fill, rslt = Object {timeToPreload: 103, adUrl: "https://cdn-secure.liverail.com/adasset4/1331/229/7969/lo.webm"}
+		})
+		.fail(function() {
+			// no fill
+			console.log('no fill')
+		});
 	
 See example on [vast preloading with html5](https://github.com/streamrail/player-api-docs/blob/master/app/examples/html5_vast_preloading.html) (javascript).
 

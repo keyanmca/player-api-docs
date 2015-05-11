@@ -10,7 +10,7 @@
 		</div>
 	</div>
 </div>
-<script src="https://sdk.streamrail.com/3762742e-0300-4fc6-a171-9e602bdda709/sr.js"></script>
+<script src="https://sdk.streamrail.com/test/3762742e-0300-4fc6-a171-9e602bdda709/player/sr.dev.js"></script>
 <script type="text/javascript">
 	var player = SR('ad-container1', {
 		tech: 'html5',
@@ -19,14 +19,37 @@
 		width: 778,
 		height: 468,
 		ads: {
-			url: 'https://play.streamrail.com/sample_files/vast2.xml',
+			url: 'https://ad3.liverail.com/?LR_PUBLISHER_ID=31&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2',
 			skip: {
 				enabled: true
 			}
 		}
 	});
+
+	['AdLoaded'
+	,'AdStarted'
+	,'AdImpression'
+	,'AdVideoComplete'
+	,'AdStopped'
+	,'AdError'
+	,'AdSkipped'
+	,'AdVideoStart'
+	,'AdClickThru'].map(function(i) {
+		player.on(i, function(event, data) {
+			console.log(i);
+		});
+	});
+
 	player.hide();
-	player.vast.preload();
+	player.vast.preload()
+	.then(function(rslt) {
+		console.log(rslt);
+		// fill, rslt = Object {timeToPreload: 103, adUrl: "https://cdn-secure.liverail.com/adasset4/1331/229/7969/lo.webm"}
+	})
+	.fail(function() {
+		// no fill
+		console.log('no fill')
+	});
 	player.one('play', function () {
 		player.show();
 	});
