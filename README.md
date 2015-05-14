@@ -302,7 +302,17 @@ to specify ads to the flash player, you need to define the ad schedule (pre-roll
 			}]
 	}
 
-normally the ad would start immediatly when choosing to autoplay. however, it is possible to specify preloadMode to load the ad without starting it. See example on [vpaid preloading with flash](http://play.streamrail.com/examples/flash_preload.html) (javascript & flash) 
+**Preloading Ad Tags**
+
+Normally the ad would start immediatly when choosing to autoplay. 
+
+However, it is possible to specify preloadMode to load the ad without starting it. 
+
+For **VPAID** ads that you want to preload, **make sure you set autoplay to true** on the player configuration. 
+
+For **VAST** ads that you want to preload using the Flash player, **make sure you set autoplay to false**. 
+
+See VPAID example on [vpaid preloading with flash](https://raw.githubusercontent.com/streamrail/player-api-docs/master/app/examples/flash_reload_reveal_after.html) (javascript & flash) 
 ## <a name="html5-api"></a> HTML5 Tech API
 
 If you are using VAST ads (not VPAID), then you may use HTML5 tech. If you are working with mobile web sites, use this option. 

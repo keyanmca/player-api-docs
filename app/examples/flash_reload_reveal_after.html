@@ -47,7 +47,7 @@
 				position: 'pre-roll',
 				server: {
 					type: 'direct',
-					tag: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid'
+					tag: 'https://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2-vpaid',
 				}
 			}]
 		}
@@ -82,6 +82,7 @@
 	player1.on('AdLoaded', function() { // ad is preloaded
 		$('#btnStart').attr('disabled', false);
 		$('#btnStart').text('Start!');
+		// playAfterPreload();
 	});
 
 	function playAfterPreload() {
