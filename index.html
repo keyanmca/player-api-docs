@@ -366,7 +366,17 @@ var player2 = SR('ad-container1', {
 }
 </code></pre>
 
-<p>normally the ad would start immediatly when choosing to autoplay. however, it is possible to specify preloadMode to load the ad without starting it. See example on <a href="http://play.streamrail.com/examples/flash_preload.html">vpaid preloading with flash</a> (javascript &amp; flash) </p>
+<p><strong>Preloading Ad Tags</strong></p>
+
+<p>Normally the ad would start immediatly when choosing to autoplay. </p>
+
+<p>However, it is possible to specify preloadMode to load the ad without starting it. </p>
+
+<p>For <strong>VPAID</strong> ads that you want to preload, <strong>make sure you set autoplay to true</strong> on the player configuration. </p>
+
+<p>For <strong>VAST</strong> ads that you want to preload using the Flash player, <strong>make sure you set autoplay to false</strong>. </p>
+
+<p>See VPAID example on <a href="https://raw.githubusercontent.com/streamrail/player-api-docs/master/app/examples/flash_reload_reveal_after.html">vpaid preloading with flash</a> (javascript &amp; flash) </p>
 
 <h2>
 <a id="-html5-tech-api" class="anchor" href="#-html5-tech-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>
