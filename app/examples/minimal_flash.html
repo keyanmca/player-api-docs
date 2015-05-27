@@ -12,12 +12,20 @@
 </div>
 <script src="https://sdk.streamrail.com/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js"></script>
 <script type="text/javascript">
-	var player = SR('ad-container1', {
+	var player = window.player = SR('ad-container1', {
 		tech: 'flash',
 		companion: false,
 		autoplay: true,
 		width: 778,
 		height: 468,
+		content: { // optionally show a content video after the ad
+			url:'https://sdk.streamrail.com/demos/debugger/nasa_is_with_you_when_you_fly.mp4',
+			id: 'nasa_is_with_you_when_you_fly.mp4',
+			title: 'Nasa Video',
+			description: 'Cool video by nasa',
+			keywords: 'space,nasa',
+			categories: 'science'
+		},
 		ads: {
 			skip: {
 				enabled: true,

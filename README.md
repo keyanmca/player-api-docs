@@ -338,6 +338,41 @@ Normally the ad would start immediatly when choosing to autoplay. however, it is
 	
 See example on [vast preloading with html5](https://github.com/streamrail/player-api-docs/blob/master/app/examples/html5_vast_preloading.html) (javascript).
 
+You can catch preload errors by inspecting the fail rejection callback. 
+
+For example:
+
+	player.vast.preload()
+	.then(function(rslt) {
+	        // all good, nothing to see here
+		})
+		.fail(function(err) {
+			console.log(err);
+		});
+
+**err** is an object that looks like this:
+
+	{
+		"action": "reject",
+		"func": "preload",
+		"isMobile": true,
+		"adTagUrl": "http://vast.bp3864321.btrll.com/vast/3864321",
+		"reason": "no ads response gotten",
+		"type": "info",
+		"fp": 668727943,
+		"sid": "9c7abec5-01b2-9af8-6707-59a478d0e209",
+		"component": "html5-vast",
+		"version": "0.1.1",
+		"sessionId": "eaca7f83-b71c-46ee-96e9-278e77c0e387"
+	}
+
+The reason may be one of the following descriptions:
+
+- "got response but it contained no ads" - the VAST was non empty but it did not contains ads
+- "no ads response gotten" - for exampe, the VAST url is invalid, or it returned empty (for example, a request from Israel would get this if the tag is configured with US demand) 
+- "manifest not ready" - the transcoding needed for mobile web autoplay is still in progress, or the manifrst is not created because of a problem with the media file (for example, it contains an mp4 file that does not exist)
+- "got response but no compatible media source was found" - we got something we cannot play (e.g. SWF on mobile), after trying to process it (the manifest is ready)
+
 
 ### Mobile web autplay
 On mobile web, the player is able to auto play some video ads. Some ads would require a warm up period for the player to be able to autoplay them, so the first few impressions would not enjoy autoplay, but after a few minutes the autoplay mechanism will kick in and you will see the ad playing without any user gesture even being made. 
