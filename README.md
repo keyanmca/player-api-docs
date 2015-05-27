@@ -336,7 +336,7 @@ Normally the ad would start immediatly when choosing to autoplay. however, it is
 			console.log('no fill')
 		});
 	
-See example on [vast preloading with html5](https://github.com/streamrail/player-api-docs/blob/master/app/examples/html5_vast_preloading.html) (javascript).
+See example on [vast preloading with html5](https://github.com/streamrail/player-api-docs/blob/master/app/examples/html5_preload_prog_play.html) (javascript).
 
 You can catch preload errors by inspecting the fail rejection callback. 
 
