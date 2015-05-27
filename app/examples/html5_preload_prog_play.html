@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+</head>
+<body layout="column">
+	<div class="cell video">
+		<button id="btnStatus" style="background:white;color:black;">Init</button>
+		<div class="container center" id="ad-container1">
+		</div>
+	</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://sdk.streamrail.com/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js"></script>
+<script type="text/javascript">
+	var player = SR('ad-container1', {
+		tech: 'html5',
+		companion: false,
+		autoplay: false,
+		width: 450,
+		height: 300,
+		ads: {
+			url: 'https://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2',
+			skip: {
+				enabled: true
+			}
+		}
+	});
+
+	['AdLoaded'
+	,'AdStarted'
+	,'AdImpression'
+	,'AdVideoComplete'
+	,'AdStopped'
+	,'AdError'
+	,'AdSkipped'
+	,'AdVideoStart'
+	,'AdClickThru'].map(function(i) {
+		player.on(i, function(event, data) {
+			console.log(i);
+		});
+	});
+
+	$('#btnStatus').text('preloading...');
+	$('#' + player.id()).hide()
+	player.vast.preload()
+	.then(function(rslt) {
+		var sec = 5;
+		var interval = setInterval(function() {
+			--sec;
+			if (sec) {
+				$('#btnStatus').text('Preload done. Starting in...' + sec);
+			}
+		}, 1000);
+		setTimeout(function() {
+			clearInterval(interval);
+			$('#btnStatus').text('auto start!');
+			player.play()
+			$('#' + player.id()).show()
+		}, 5000);
+	})
+	.fail(function() {
+		// no fill
+		console.log('no fill')
+	});
+</script>
+</body>
+</html>
