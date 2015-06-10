@@ -10,7 +10,8 @@
 		</div>
 	</div>
 </div>
-<script src="https://sdk.streamrail.com/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js"></script>
+<script src="https://sdk.streamrail.com/test/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js?v=234"></script>
+<button onclick="pause();">Pause</button>
 <script type="text/javascript">
 	var player = window.player = SR('ad-container1', {
 		tech: 'flash',
@@ -36,11 +37,17 @@
 				position: 'pre-roll',
 				server: {
 					type: 'direct',
-					tag: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid'
+					tag: 'http://t-ads.adap.tv/a/t/integration_test?pet=preroll&creativeType=vast_video&artEid=vast_2_0_vpaid&zid=flash_ads&pageUrl=test.com'
 				}
 			}]
 		}
 	});
+
+	function pause() {
+		console.log('pausing');
+		document.getElementById(player.id() + '_api').requestPause();
+	}
+
 	player.on('AdError', function(event, data) {
 		if (!data) {
 			data = {

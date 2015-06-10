@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+	<style>
+		body,html {
+			background-color: white;
+		}
+		.center {
+			display: block !important;
+			margin: 0 auto;
+			width: 778px;
+			position: relative !important;
+		}
+		.main-view {
+			background: black;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body layout="column">
+	<div class="cell video">
+		<button id="btnStart" disabled style="background:white;color:black;">Preloading...</button>
+		<button id="btnSkip" disabled style="background:white;color:black;">Skip</button>
+		<div class="container center" id="ad-container1">
+		</div>
+	</div>
+</div>
+<script src="https://sdk.streamrail.com/test/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js?v=234"></script>
+<script type="text/javascript">
+	// var tag = 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid';
+	var tag = 'http://vast.bp3863356.btrll.com/vast/3863356?n=1426410433&br_w=300&br_h=250&br_pageurl=http%3A%2F%2Fplay.streamrail.com%2F&br_conurl=http%3A%2F%2Fsdk.streamrail.com%2Fdemos%2Fdebugger%2Fnasa_is_with_you_when_you_fly.mp4';
+	var player1 =  window.player1 = SR('ad-container1', {
+		tech: 'flash',
+		companion: false,
+		autoplay: false,
+		preloadMode: false,
+		width: 778,
+		height: 468,
+			content: { // optionally show a content video after the ad
+				url:'https://sdk.streamrail.com/demos/debugger/nasa_is_with_you_when_you_fly.mp4',
+				id: 'nasa_is_with_you_when_you_fly.mp4',
+				title: 'Nasa Video',
+				description: 'Cool video by nasa',
+				keywords: 'space,nasa',
+				categories: 'science'
+			},
+			ads: {
+				skip: {
+					enabled: true,
+					btnText: 'Continue'
+				},
+				pauseOnClickThrough: true,
+				schedule: [{
+					position: 'pre-roll',
+					server: {
+						type: 'direct',
+						tag: tag,
+					}
+				}]
+			}
+		});
+	var orgPosition = $('#ad-container1').css('left');
+	$('#ad-container1').css('position', 'absolute').css('left', -100000);
+	var events =
+	['AdLoaded',
+	'AdStarted',
+	'AdVolumeChange',
+	'AdImpression',
+	'AdVideoStart',
+	'AdVideoFirstQuartile',
+	'AdVideoMidpoint',
+	'AdVideoThirdQuartile',
+	'AdVideoComplete',
+	'AdClickThru',
+	'AdUserClose',
+	'AdPaused',
+	'AdPlaying',
+	'AdError',
+	'AdSkipped',
+	'AdLoadTimeout'];
+	events.map(function(x) {
+		player1.on(x, function() {
+			console.log(x + ' from player ' + player1.sessionID);
+		});
+	});
+		player1.one('AdPaused', function() { // ad media file is fully preloaded
+			$('#btnStart').attr('disabled', false);
+			$('#btnSkip').attr('disabled', false);
+			$('#btnStart').text('Start!');
+			$('#btnStart').one('click', function() {
+				$('#ad-container1').css('left', orgPosition);
+				player1.resume();
+			});
+			$('#btnSkip').one('click', function() {
+				player1.skipVPAID();
+			});
+		});
+		player1.on('AdVideoStart', function() {
+			player1.pauseVPAID();
+		})
+	</script>
+</body>
+</html>

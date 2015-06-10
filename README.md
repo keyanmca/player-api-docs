@@ -29,6 +29,7 @@ Dive into the code samples (source available on the [github repo](https://github
 - Minimalistic [flash vpaid tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_flash.html) (javascript & flash)
 - [Vpaid preloading with flash](https://github.com/streamrail/player-api-docs/blob/master/app/examples/flash_preload.html) (javascript & flash)
 - [Vpaid preloading with flash, bring player to front only after prelaod is done](https://github.com/streamrail/player-api-docs/blob/master/app/examples/flash_reload_reveal_after.html) (javascript & flash)
+- [Vpaid preloading with flash - pause to ad and resume when ready](https://github.com/streamrail/player-api-docs/blob/master/app/examples/preload_with_pause.html) (javascript & flash)
 - A sequence of [two html5 players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence_html5.html)
 - A sequence of [two flash players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence_flash.html)
 - Use the [Playground](http://play.streamrail.com/index.html) to test out your VAST tags.

@@ -11,8 +11,10 @@
 		</div>
 	</div>
 </div>
-<script src="https://sdk.streamrail.com/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js"></script>
+<script src="https://sdk.streamrail.com/test/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js?v=234"></script>
 <script type="text/javascript">
+
+	var tag = 'http://vast.bp3863356.btrll.com/vast/3863356?n=1426410433&br_w=300&br_h=250&br_pageurl=http%3A%2F%2Fplay.streamrail.com%2F&br_conurl=http%3A%2F%2Fsdk.streamrail.com%2Fdemos%2Fdebugger%2Fnasa_is_with_you_when_you_fly.mp4';
 
 	// events we are interested in capturing
 	var events = 
@@ -47,7 +49,8 @@
 				position: 'pre-roll',
 				server: {
 					type: 'direct',
-					tag: 'https://sdk.streamrail.com/demos/player-page/srvast.xml'
+					// tag: 'https://sdk.streamrail.com/demos/player-page/srvast.xml'
+					tag: tag
 				}
 			}]
 		}
@@ -75,7 +78,8 @@
 					position: 'pre-roll',
 					server: {
 						type: 'direct',
-						tag: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid'
+						// tag: 'https://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid'
+						tag: tag
 					}
 				}]
 			}

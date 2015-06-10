@@ -9,11 +9,16 @@
 		<div class="container center" id="ad-container1">
 		</div>
 	</div>
+	<div class="cell video">
+		<button id="btnStart2" disabled onclick="player2.playPreloaded();" style="background:white;color:black;">Preloading...</button>
+		<div class="container center" id="ad-container2">
+		</div>
+	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://sdk.streamrail.com/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js"></script>
+<script src="https://sdk.streamrail.com/test/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js?v=234"></script>
 <script type="text/javascript">
-	var player =  window.player = SR('ad-container1', {
+	var player = SR('ad-container1', {
 		tech: 'flash',
 		companion: false,
 		autoplay: true,
@@ -34,7 +39,34 @@
 		  		position: 'pre-roll',
 		  		server: {
 		  			type: 'direct',
-		  			tag: 'http://vast.bp3863356.btrll.com/vast/3863356?n=1431285260'
+		  			tag: 'https://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2-vpaid'
+		  		}
+		  	}]
+		  }
+		});
+
+	var player2 = SR('ad-container2', {
+		tech: 'flash',
+		companion: false,
+		autoplay: true,
+		preloadMode: true,
+		width: 778,
+		height: 468,
+		  content: { // optionally show a content video after the ad
+		  	url:'https://sdk.streamrail.com/demos/debugger/nasa_is_with_you_when_you_fly.mp4',
+		  	id: 'nasa_is_with_you_when_you_fly.mp4',
+		  	title: 'Nasa Video',
+		  	description: 'Cool video by nasa',
+		  	keywords: 'space,nasa',
+		  	categories: 'science'
+		  },
+		  ads: {
+		  	pauseOnClickThrough: true,
+		  	schedule: [{
+		  		position: 'pre-roll',
+		  		server: {
+		  			type: 'direct',
+		  			tag: 'http://vast.bp3863356.btrll.com/vast/3863356?n=1426410433&br_w=300&br_h=250&br_pageurl=http%3A%2F%2Fplay.streamrail.com%2F&br_conurl=http%3A%2F%2Fsdk.streamrail.com%2Fdemos%2Fdebugger%2Fnasa_is_with_you_when_you_fly.mp4'
 		  		}
 		  	}]
 		  }
@@ -50,23 +82,20 @@
 	,'AdVideoStart'
 	,'AdClickThru'].map(function(i) {
 		player.on(i, function(event, data) {
-			console.log(i);
+			console.log(i, 'from player', player.sessionID);
+		});
+		player2.on(i, function(event, data) {
+			console.log(i, 'from player', player2.sessionID);
 		});
 	});
-	player.on('AdError', function(event, data) {
-		if (!data) {
-			data = {
-				code: event.code,
-				description: event.description
-			}
-		}
-		console.log(data);
-	})
 	player.on('AdLoaded', function() { // ad is preloaded
 		$('#btnStart').attr('disabled', false);
 		$('#btnStart').text('Start!');
 	});
-
+	player2.on('AdLoaded', function() { // ad is preloaded
+		$('#btnStart2').attr('disabled', false);
+		$('#btnStart2').text('Start!');
+	});
 </script>
 </body>
 </html>

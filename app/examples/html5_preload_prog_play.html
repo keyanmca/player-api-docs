@@ -10,7 +10,7 @@
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://sdk.streamrail.com/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js"></script>
+<script src="https://sdk.streamrail.com/test/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js?v=234"></script>
 <script type="text/javascript">
 	var player = SR('ad-container1', {
 		tech: 'html5',
@@ -36,7 +36,7 @@
 	,'AdVideoStart'
 	,'AdClickThru'].map(function(i) {
 		player.on(i, function(event, data) {
-			console.log(i);
+			console.log(i, event, data);
 		});
 	});
 

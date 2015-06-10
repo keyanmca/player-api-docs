@@ -1,39 +1,36 @@
-<html lang="en">
-<head>
-	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
-	<link rel="stylesheet" type="text/css" href="../css/player.css">
-</head>
-<body layout="column">
-	<div class="cell video">
-		<div class="container center" id="ad-container1">
+	<html lang="en">
+	<head>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+	</head>
+	<body layout="column">
+		<div class="cell video">
+			<div class="container center" id="ad-container1">
+			</div>
 		</div>
 	</div>
-</div>
-<script src="https://sdk.streamrail.com/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js"></script>
-<script type="text/javascript">
-	var player = SR('ad-container1', {
-		tech: 'html5',
-		companion: false,
-		autoplay: true,
-		width: 778,
-		height: 468,
-		ads: {
-			url: 'https://play.streamrail.com/sample_files/vast2.xml',
-			skip: {
-				enabled: true
+	<script src="https://sdk.streamrail.com/test/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js?v=234"></script>
+	<script type="text/javascript">
+		var player = SR('ad-container1', {
+			tech: 'html5',
+			companion: false,
+			autoplay: true,
+			width: screen.availWidth,
+			height: 1300,
+			ads: {
+				url: 'https://play.streamrail.com/sample_files/vast2.xml',
+				skip: {
+					enabled: true
+				}
 			}
-		}
-	});
+		});
 
-	player.on('AdError', function(event, data) {
-		if (!data) {
-			data = {
-				code: event.code,
-				description: event.description
+		player.on('AdError', function(event, data) {
+			if (!data) {
+				data = {
+					code: event.code,
+					description: event.description
+				}
 			}
-		}
-		console.log(data);
-	});
-</script>
-</body>
-</html>
+			console.log(data);
+		});
+	</script>
