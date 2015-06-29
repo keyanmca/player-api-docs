@@ -1,0 +1,44 @@
+
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+	<style type="text/css">
+		body,html {
+			background-color: black;
+		}
+		.fullscreen {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body layout="column">
+	<div class="cell video">
+		<div class="container fullscreen" id="ad-container1">
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="https://sdk.streamrail.com/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js"></script>
+<script type="text/javascript">
+	var tag = 'http://vast.bp3863356.btrll.com/vast/3863356?n=1426410433&br_w=300&br_h=250&br_pageurl=http%3A%2F%2Fplay.streamrail.com%2F&br_conurl=http%3A%2F%2Fsdk.streamrail.com%2Fdemos%2Fdebugger%2Fnasa_is_with_you_when_you_fly.mp4';
+	var player = window.player = SR('ad-container1', {
+		tech: 'flash',
+		companion: false,
+		autoplay: true,
+		ads: {
+			skip: {
+				enabled: false,
+			},
+			pauseOnClickThrough: true,
+			schedule: [{
+				position: 'pre-roll',
+				server: {
+					type: 'direct',
+					tag: tag
+				}
+			}]
+		}
+	});
+</script>
+</body>
+</html>
