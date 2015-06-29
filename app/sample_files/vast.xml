@@ -40,8 +40,8 @@
                         </VideoClicks>
                         
                         <MediaFiles>
-                            <MediaFile delivery="progressive" bitrate="256" width="480" height="352" type="video/mp4"><![CDATA[http://sdk.streamrail.net/demos/player-page/nissan.mp4]]></MediaFile>
-                            <MediaFile delivery="progressive" bitrate="256" width="480" height="352" type="video/webm"><![CDATA[http://media.streamrail.com/ads/nissan.webm]]></MediaFile>
+                            <MediaFile delivery="progressive" bitrate="256" width="480" height="352" type="video/mp4"><![CDATA[https://mtc.cdn.vine.co/r/videos/1E4A148B411226234949624590336_353211fcbbb.4.1.3463568303145948991.mp4?versionId=R74dvTCBJTbnVPHzH6n1tgsfWloiMkrb]]></MediaFile>
+                            <MediaFile delivery="progressive" bitrate="256" width="480" height="352" type="video/webm"><![CDATA[https://mtc.cdn.vine.co/r/videos/1E4A148B411226234949624590336_353211fcbbb.4.1.3463568303145948991.mp4?versionId=R74dvTCBJTbnVPHzH6n1tgsfWloiMkrb]]></MediaFile>
                         </MediaFiles>
                     </Linear>
                 </Creative>

@@ -25,16 +25,28 @@ Check out:
 ### Code Examples
 Dive into the code samples (source available on the [github repo](https://github.com/streamrail/player-api-docs/blob/master/app/examples/)):
 
+### VPAID (Desktop, Flash)
+
+- Minimalistic autoplay ad [flash vpaid tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_flash.html) (javascript & flash)
+- [Preload](https://github.com/streamrail/player-api-docs/blob/master/app/examples/flash_preload.html) VPAID AdsManager and starting playing on demand
+- [Preload](https://github.com/streamrail/player-api-docs/blob/master/app/examples/preload_with_pause.html)
+ complete flow (pause ad on start, if there is an ad) and play on demand
+- [Two Players Sequence](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence_flash.html)
+- [DFP](https://github.com/streamrail/player-api-docs/blob/master/app/examples/dfp_flash.html) (Google Double Click for Publishers) style integration (player takes up full screen)
+
+### HTML5 (VAST, Mobile)
 - Minimalistic [html5 vast tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_js.html) (html5, web & mobile web)
-- Minimalistic [flash vpaid tag integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/minimal_flash.html) (javascript & flash)
-- [Vpaid preloading with flash](https://github.com/streamrail/player-api-docs/blob/master/app/examples/flash_preload.html) (javascript & flash)
-- [Vpaid preloading with flash, bring player to front only after prelaod is done](https://github.com/streamrail/player-api-docs/blob/master/app/examples/flash_reload_reveal_after.html) (javascript & flash)
-- [Vpaid preloading with flash - pause to ad and resume when ready](https://github.com/streamrail/player-api-docs/blob/master/app/examples/preload_with_pause.html) (javascript & flash)
-- A sequence of [two html5 players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence_html5.html)
-- A sequence of [two flash players with different skip policies](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence_flash.html)
-- Use the [Playground](http://play.streamrail.com/index.html) to test out your VAST tags.
-- Minimalistic [JW Player 6.12 integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/jw.html)
-- Minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/vjs)
+- [Preload](https://github.com/streamrail/player-api-docs/blob/master/app/examples/html5_preload_prog_play.html), programatically start playing after
+- [Preload](https://github.com/streamrail/player-api-docs/blob/master/app/examples/play_after_preload_vast.html), play immediately
+- [Two players](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_same_time.html) at the same time 
+- [Two Players Sequence](https://github.com/streamrail/player-api-docs/blob/master/app/examples/two_players_sequence_html5.html)
+- [DFP](https://github.com/streamrail/player-api-docs/blob/master/app/examples/dfp_mobile.html) (Google Double Click for Publishers) style integration (player takes up full screen)
+
+## Plugins
+- [JW Player](https://github.com/streamrail/player-api-docs/blob/master/app/examples/jw.html) Integration
+- [video.js](https://github.com/streamrail/player-api-docs/blob/master/app/examples/min_vjs.html) Integration
+
+
 
 To run the examples on your machine, clone the repo and install the package deps:
 
