@@ -2,35 +2,34 @@
 	<head>
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
 	</head>
+	<style type="text/css">
+	#ad-container1 {
+		width: 300px;
+		height: 250px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	</style>
 	<body layout="column">
 		<div class="cell video">
 			<div class="container center" id="ad-container1">
 			</div>
 		</div>
-	</div>
-	<script type="text/javascript" src="https://sdk.streamrail.com/afff6788-098a-4506-9ce7-e78a83d7519a/player/sr.js"></script>
+	</div>	
+	
+	 <script type="text/javascript" src="https://sdk.streamrail.com/<your_account_id>/player/sr.js"></script>
+	 
 	<script type="text/javascript">
 		var player = SR('ad-container1', {
 			tech: 'html5',
 			companion: false,
 			autoplay: true,
-			width: screen.availWidth,
-			height: 1300,
 			ads: {
-				url: 'https://play.streamrail.com/sample_files/vast2.xml',
+				url: 'https://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2',
 				skip: {
 					enabled: true
 				}
 			}
-		});
-
-		player.on('AdError', function(event, data) {
-			if (!data) {
-				data = {
-					code: event.code,
-					description: event.description
-				}
-			}
-			console.log(data);
 		});
 	</script>

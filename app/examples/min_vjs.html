@@ -1,21 +1,23 @@
 <!DOCTYPE html> 
 <html>
-
 <head>
-  <link href="http://vjs.zencdn.net/4.6/video-js.css" rel="stylesheet">
-  <script src="http://vjs.zencdn.net/4.6/video.js"></script>
-  <script type="text/javascript" src="https://sdk.streamrail.com/test/video.js/videojs.streamrail.dev.js?v=01"></script>
+  <link href="http://vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
+  <link href="style.css?v=2" rel="stylesheet">
+  <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+  <script type="text/javascript" src="https://sdk.streamrail.com/<your_account_id>/streamrail-videojs/videojs.streamrail.js"></script>
   <title>StreamRail / Video.js Plugin</title>
 </head>
 <body>
   <h1>StreamRail / Video.js Plugin demo</h1>
-  <video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" autoplay>
-    <source src="http://sdk.streamrail.com/pepsi/cdn/0.0.1/366d5ab1829ae452b7e39122213861bc4b20d568/video.mp4" type="video/mp4">
-    </video>
-<p>video: <a href="https://vimeo.com/82095744">Aidan Sheahan - "Insight"</a> from Vital Films (<a href="http://creativecommons.org/licenses/by/3.0/">CC-BY</a>)</p>
-    <script>
-      videojs.streamrail = { enabled: true};
-      var player = videojs('vid1');
-    </script>
-  </body>
-  </html>
+
+  <div id="video-loader"><input id="video-input"><button id="load-video">Load Video</button></div>
+  <video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="600" height="400" autoplay>
+    <source src="http://media.streamrail.com/ads/289391622.mp4" type="video/mp4">
+  </video>
+  <script type="text/javascript">
+  videojs.streamrail = { enabled: true, key: 'afff6788'};
+  var player = videojs('vid1');
+  var playerId = 1;
+</script>
+</body>
+</html>

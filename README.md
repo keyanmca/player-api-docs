@@ -504,14 +504,14 @@ First, include your JW Player script as you would normally do:
 	<script type="text/javascript" src="https://sdk.streamrail.com/jwplayer/jwplayer.js"></script>
 Then, include the Streamrail JW Plugin that you were given by your Streamrail account manager. **Make sure that you include the streamrail script before initiating the player using JavaScript**:
 
-	<script type="text/javascript" src="https://sdk.streamrail.com/jwplayer/jwplayer.streamrail.js"></script>
+	<script type="text/javascript" src="https://sdk.streamrail.com/<your_account_id>/streamrail-jw/jwplayer.streamrail.js"></script>
 
 And that's it, your'e done. Streamrail's plugin will connect to the JW Player instance and provide on-the-fly [DASH](http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) transcoding on top of Streamrail's CDN network. Streamrail's plugin will automatically serve the video from the Streamrail CDN **after a few minutes** (the video is first transcoded and the Streamrail cache is warmed up before it takes control over the delivery process).
 
 So, for example, if you set the JW Player settings objects with a reference to a video (mp4/mov etc.) like so:
 
 	var settings = {
-			file: 'http://ftp.nluug.nl/pub/graphics/blender/demo/movies/ToS/ToS-4k-1920.mov',
+			file: 'http://media.streamrail.com/ads/289391622.mp4',
 			autostart: true,
 			fallback: false,
 			width: 640,
@@ -524,7 +524,7 @@ You could also input a DASH stream directly if you already have one like so:
 
 	<script type="text/javascript">
 		var settings = {
-			file: 'https://sdk.streamrail.com/pepsi/cdn/0.0.1/4067bfbe7ebfaa8551d5548ada69d8a40936ff40/dash/manifest_hd.mpd',
+			file: 'http://media.streamrail.com/ads/289391622.mp4',
 			autostart: true,
 			fallback: false,
 			width: 640,
@@ -545,11 +545,11 @@ First, include your video.js script as you would normally do:
 
 Then, include the Streamrail video.js that you were given by your Streamrail account manager:
 
-	<script type="text/javascript" src="https://sdk.streamrail.com/video.js/videojs.streamrail.js"></script>
+	<script type="text/javascript" src="https://sdk.streamrail.com/<your_account_id>/streamrail-videojs/videojs.streamrail.js"></script>
 
 Then, when initializing your video.js player, tell it that you want Streamrail plugin to be enabled like so:
 
-	videojs.streamrail = { enabled: true };
+	videojs.streamrail = { enabled: true, key: <your_account_key> };
 	var player = videojs('my_video');
 	   
 And that's it, your'e done. Streamrail's plugin will connect to the video.js instance and provide on-the-fly [DASH](http://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) transcoding on top of Streamrail's CDN network. Streamrail's plugin will automatically serve the video from the Streamrail CDN **after a few minutes** (the video is first transcoded and the Streamrail cache is warmed up before it takes control over the delivery process).
@@ -557,7 +557,7 @@ And that's it, your'e done. Streamrail's plugin will connect to the video.js ins
 So, for example, if you set the video with a reference to a video (mp4/mov etc.) like so:
 
 	<video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" autoplay>
-		<source src="http://sdk.streamrail.com/pepsi/cdn/0.0.1/366d5ab1829ae452b7e39122213861bc4b20d568/video.mp4" type="video/mp4">
+		<source src="http://media.streamrail.com/ads/289391622.mp4" type="video/mp4">
 	</video>
 		
 Once the input video is ready to be delivered from the Streamrail CDN, it will automatically switch to using Streamrail CDN (until then, the video will be played from your original CDN as usual).
@@ -565,7 +565,7 @@ Once the input video is ready to be delivered from the Streamrail CDN, it will a
 You could also input a DASH stream directly if you already have one like so:
 
 	<video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" autoplay>
-		<source src="https://sdk.streamrail.com/pepsi/cdn/0.0.1/f900457ca09c6bf6680ea62281bbe7490f2c3b1f/dash/manifest.mpd" type='application/dash+xml'>
+		<source src="http://sdk.streamrail.com/pepsi/cdn/0.0.1/b86fea2cdac886d1224e3ee97f9c11f295c181e9/dash/manifest.mpd" type='application/dash+xml'>
 	</video>
 		
 For a complete example of playing a DASH stream using video.js and Streamrail's plugin, see minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/min_vjs.html), or view the video.js example on the [Playground](http://play.streamrail.com/index.html#/vjs).
