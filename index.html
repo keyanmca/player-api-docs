@@ -674,11 +674,15 @@ var player = videojs('my_video');
 
 <p>Note that if you are feeding video.js with a source via JavaScript and not HTML, you should provide the mime type of the video in addition to the source (otherwise, video.js will ignore plugins). </p>
 
-<p>So instead of this:
-    player.src('<a href="http://media.streamrail.com/ads/289391622.mp4">http://media.streamrail.com/ads/289391622.mp4</a>');</p>
+<p>So instead of this:</p>
 
-<p>You should do this: 
-    player.src({src: '<a href="http://media.streamrail.com/ads/289391622.mp4">http://media.streamrail.com/ads/289391622.mp4</a>', type: 'video/mp4'});</p>
+<pre><code>player.src('http://media.streamrail.com/ads/289391622.mp4');
+</code></pre>
+
+<p>You should do this: </p>
+
+<pre><code>player.src({src: 'http://media.streamrail.com/ads/289391622.mp4', type: 'video/mp4'});
+</code></pre>
 
 <p>For a complete example of playing a DASH stream using video.js and Streamrail's plugin, see minimalistic <a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/min_vjs.html">video.js integration</a>, or view the video.js example on the <a href="http://play.streamrail.com/index.html#/vjs">Playground</a>.</p>
 
