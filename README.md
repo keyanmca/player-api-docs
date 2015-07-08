@@ -567,5 +567,13 @@ You could also input a DASH stream directly if you already have one like so:
 	<video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264" autoplay>
 		<source src="http://sdk.streamrail.com/pepsi/cdn/0.0.1/b86fea2cdac886d1224e3ee97f9c11f295c181e9/dash/manifest.mpd" type='application/dash+xml'>
 	</video>
-		
+
+Note that if you are feeding video.js with a source via JavaScript and not HTML, you should provide the mime type of the video in addition to the source (otherwise, video.js will ignore plugins). 
+
+So instead of this:
+	player.src('http://media.streamrail.com/ads/289391622.mp4');
+
+You should do this:	
+	player.src({src: 'http://media.streamrail.com/ads/289391622.mp4', type: 'video/mp4'});
+	
 For a complete example of playing a DASH stream using video.js and Streamrail's plugin, see minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/min_vjs.html), or view the video.js example on the [Playground](http://play.streamrail.com/index.html#/vjs).
