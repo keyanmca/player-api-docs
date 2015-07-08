@@ -9,7 +9,6 @@
 </head>
 <body>
   <h1>StreamRail / Video.js Plugin demo</h1>
-
   <div id="video-loader"><input id="video-input"><button id="load-video">Load Video</button></div>
   <video id="vid1" class="video-js vjs-default-skin" controls preload="auto" width="600" height="400" autoplay>
     <source src="http://media.streamrail.com/ads/289391622.mp4" type="video/mp4">
@@ -17,7 +16,6 @@
   <script type="text/javascript">
   videojs.streamrail = { enabled: true, key: 'afff6788'};
   var player = videojs('vid1');
-  var playerId = 1;
 </script>
 </body>
 </html>
