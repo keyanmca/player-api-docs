@@ -4,7 +4,7 @@
 
 ## Overview
 
-[Quickstart & Examples](#quickstart) | [General](#general) | [Video Content](#video-content) | [Flash Tech API](#flash-api) | [HTML5 Tech API] (#html5-api) | [Streamrail for JW Player](#jw_plugin) | [Streamrail for video.js](#vjs_plugin) 
+[Quickstart & Examples](#quickstart) | [General](#general) | [Video Content](#video-content) | [Flash Tech API](#flash-api) | [HTML5 Tech API] (#html5-api) | [Streamrail for JW Player](#jw_plugin) | [Streamrail for video.js](#vjs_plugin) | [pepsi.js](#pepsi_js) 
 
 ## <a name="quickstart"></a> Quickstart & Examples
 
@@ -579,3 +579,46 @@ You should do this:
 	player.src({src: 'http://media.streamrail.com/ads/289391622.mp4', type: 'video/mp4'});
 
 For a complete example of playing a DASH stream using video.js and Streamrail's plugin, see minimalistic [video.js integration](https://github.com/streamrail/player-api-docs/blob/master/app/examples/min_vjs.html), or view the video.js example on the [Playground](http://play.streamrail.com/index.html#/vjs).
+
+## <a name="pepsi_js"></a> pepsi.js
+
+Pepsi.js is the autoplay technology behind the streamrail player. 
+
+The player basically exposes the following API. Let's see in by following the example:
+
+1.  First, init the player. Specify `containerID` and if you would like to enable viewablity:
+
+		var pepsi = new PepsiJS({
+			containerID: 'video_container',
+			viewability: 1 // do you want the player to only play when it's viewable? 
+			});
+
+2. this is the media file that you want to autoplay
+3. 
+		var videoUrl = 'http://media.streamrail.com/ads/hnm480.30.mp4';
+
+3. process video :-)
+
+		pepsi.drinkUp(videoUrl);
+
+4. register timeupdate event, like the video timeupdate
+
+		pepsi.on('timeupdate', function  (data) {
+			console.log(data);
+		});
+
+5. get notified when the player is done playing
+
+		pepsi.on('ended', function() {
+			console.log('ended');
+		});
+
+6. `pepsi.paused()` - is the player paused?
+
+7. `pepsi.pause()` - pause the player!
+
+8. `pepsi.play()` - resume playback after pause (the player always autoplays)
+
+9. `player.currentTime()` - get the current time 
+
+10. `player.duration()` - get the current media file duration
