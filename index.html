@@ -27,7 +27,7 @@
 <h2>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
 
-<p><a href="#quickstart">Quickstart &amp; Examples</a> | <a href="#general">General</a> | <a href="#video-content">Video Content</a> | <a href="#flash-api">Flash Tech API</a> | <a href="#html5-api">HTML5 Tech API</a> | <a href="#jw_plugin">Streamrail for JW Player</a> | <a href="#vjs_plugin">Streamrail for video.js</a> </p>
+<p><a href="#quickstart">Quickstart &amp; Examples</a> | <a href="#general">General</a> | <a href="#video-content">Video Content</a> | <a href="#flash-api">Flash Tech API</a> | <a href="#html5-api">HTML5 Tech API</a> | <a href="#jw_plugin">Streamrail for JW Player</a> | <a href="#vjs_plugin">Streamrail for video.js</a> | <a href="#pepsi_js">pepsi.js</a> </p>
 
 <h2>
 <a id="-quickstart--examples" class="anchor" href="#-quickstart--examples" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="quickstart"></a> Quickstart &amp; Examples</h2>
@@ -685,6 +685,55 @@ var player = videojs('my_video');
 </code></pre>
 
 <p>For a complete example of playing a DASH stream using video.js and Streamrail's plugin, see minimalistic <a href="https://github.com/streamrail/player-api-docs/blob/master/app/examples/min_vjs.html">video.js integration</a>, or view the video.js example on the <a href="http://play.streamrail.com/index.html#/vjs">Playground</a>.</p>
+
+<h2>
+<a id="-pepsijs" class="anchor" href="#-pepsijs" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="pepsi_js"></a> pepsi.js</h2>
+
+<p>Pepsi.js is the autoplay technology behind the streamrail player. </p>
+
+<p>The player basically exposes the following API. Let's see in by following the example:</p>
+
+<ol>
+<li>
+<p>First, init the player. Specify <code>containerID</code> and if you would like to enable viewablity:</p>
+
+<pre><code>var pepsi = new PepsiJS({
+    containerID: 'video_container',
+    viewability: 1 // do you want the player to only play when it's viewable? 
+    });
+</code></pre>
+</li>
+<li><p>this is the media file that you want to autoplay</p></li>
+<li><pre><code>var videoUrl = 'http://media.streamrail.com/ads/hnm480.30.mp4';
+</code></pre></li>
+<li>
+<p>process video :-)</p>
+
+<pre><code>pepsi.drinkUp(videoUrl);
+</code></pre>
+</li>
+<li>
+<p>register timeupdate event, like the video timeupdate</p>
+
+<pre><code>pepsi.on('timeupdate', function  (data) {
+    console.log(data);
+});
+</code></pre>
+</li>
+<li>
+<p>get notified when the player is done playing</p>
+
+<pre><code>pepsi.on('ended', function() {
+    console.log('ended');
+});
+</code></pre>
+</li>
+<li><p><code>pepsi.paused()</code> - is the player paused?</p></li>
+<li><p><code>pepsi.pause()</code> - pause the player!</p></li>
+<li><p><code>pepsi.play()</code> - resume playback after pause (the player always autoplays)</p></li>
+<li><p><code>player.currentTime()</code> - get the current time </p></li>
+<li><p><code>player.duration()</code> - get the current media file duration</p></li>
+</ol>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/streamrail/player-api-docs">Player-api-docs</a> is maintained by <a href="https://github.com/streamrail">streamrail</a>.</span>
