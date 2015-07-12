@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Viewability test</title>
+    <link href='../css/viewability.css' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+<div class="viewablity-blocker">
+    <div>Scroll down to see the video playing only when it's viewable</div>
+    <br>
+    <div id="log"></div>
+</div>
+<div id="video_container" class="center" style="height: 200px;"></div>
+<script type="text/javascript" src="http://localhost:8001/deploy/sr.dev.js"></script>
+     
+    <script type="text/javascript">
+        var player = SR('video_container', {
+            tech: 'html5',
+            companion: false,
+            autoplay: true,
+            viewability: true,
+            ads: {
+                url: 'https://sdk.streamrail.com/demos/player-page/srvast.xml',
+                skip: {
+                    enabled: true
+                }
+            }
+        });
+
+        ['AdLoaded',
+        'AdVideoStart',
+        'AdVideoComplete',
+        'AdPaused',
+        'AdPlaying'].map(function(eventName) {
+        player.on(eventName, function(eventDetails) {
+            $('#log').append('<li id="' + eventName + '">'+ eventName + ' -> </li>');
+            console.log(eventName)
+        });
+    });
+    </script>
+</body>
+</html>
