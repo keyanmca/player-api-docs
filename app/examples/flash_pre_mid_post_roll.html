@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" type="text/css" href="../css/player.css">
+</head>
+<body layout="column">
+	<div class="cell video">		
+		<div class="container center" id="ad-container1">
+		</div>
+	</div>
+	
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost:8001/deploy/sr.dev.js"></script>
+<script type="text/javascript">
+	
+	var videoUrl = "https://sdk.streamrail.com.s3.amazonaws.com/demos/debugger/sampleVideo_720x480_2mb.mp4";
+
+	var liverail = {
+		preRoll: 'https://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2-vpaid)',
+		midRoll: 'https://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2-vpaid)',
+		postRoll: 'https://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2-vpaid)'
+	};
+
+	var player = SR('ad-container1', {
+		tech: 'flash',
+		companion: false,
+		autoplay: true,
+		width: 778,
+		height: 468,
+		  content: { // optionally show a content video after the ad
+		  	url: videoUrl,
+		  	id: 'sample.mp4',
+		  	title: 'Video',
+		  	description: 'Cool video',
+		  	keywords: 'cool,vide',
+		  	categories: 'video'
+		  },
+		  ads: {
+		  	skip: {
+				enabled: true
+			},
+		  	pauseOnClickThrough: true,
+		  	
+		  	schedule: [
+		  		{
+		  			position: "pre-roll",
+		  			server: {
+	                 tag: liverail.preRoll,
+	                 oneAdPerRequest: false
+	             }
+	         	},		  			         	
+			  	{
+			  		position: "mid-roll",
+	                startTime: "00:00:10",
+			  		server: {
+			  			tag: liverail.midRoll,
+			  			oneAdPerRequest: false
+			  		}
+			  	},
+			  	{ 
+                     position: "post-roll",
+                     server: {
+                         tag: liverail.postRoll,
+                         oneAdPerRequest: false
+                     }
+                }
+		  	]
+		  }
+		});
+
+	['AdLoaded'
+	,'AdStarted'
+	,'AdImpression'
+	,'AdVideoComplete'
+	,'AdStopped'
+	,'AdError'
+	,'AdSkipped'
+	,'AdVideoStart'
+	,'AdClickThru'].map(function(i) {
+		player.on(i, function(event, data) {
+			console.log(i, 'from player', player.sessionID);
+		});
+	});
+</script>
+</body>
+</html>
